@@ -4,13 +4,14 @@ import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../theme";
 
-export default function HomeScreen() {
+
+export default function InfoScreen() {
     const navigation = useNavigation();
-    return (
+    return  (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.text}>Home Screen</Text>
+            <Text style={globalStyles.text}>Info Screen</Text>
             <TouchableOpacity
-                onPress={() => navigation.navigate("Info")}
+                onPress={() => navigation.navigate("Map")}
                 style={{
                     backgroundColor: theme.bg(1),
                     alignItems: "center",
@@ -21,5 +22,3 @@ export default function HomeScreen() {
         </View>
     )
 }
-
-
