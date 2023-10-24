@@ -4,7 +4,8 @@ export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        position: "relative",
     },
     text: {
         color: "black",
@@ -42,3 +43,30 @@ export const globalStyles = StyleSheet.create({
         color: 'black',
     },
 })
+
+/* fonts */
+export const FontFamily = {
+    customNavigation: "Inter-Bold",
+  };
+  /* font sizes */
+  export const FontSize = {
+    customNavigation_size: 12,
+  };
+  /* Colors */
+  export const Color = {
+    bottomNavigationBottomNavigationBackgroundColor: "#fff",
+    bottomNavigationBottomNavigationBorderColor: "#e2e2e2",
+    bottomNavigationBottomNavigationSelectedColor: "#000",
+  };
+  /* Paddings */
+  export const Padding = {
+    p_base: 16,
+    p_5xs: 8,
+    p_2xs: 11,
+  };
+  /* border radiuses */
+  export const Border = {
+    br_5xs: 8,
+    br_81xl: 100,
+  };
+  
