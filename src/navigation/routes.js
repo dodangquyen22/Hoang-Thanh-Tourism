@@ -17,10 +17,11 @@ function AppNavigation() {
         initialRouteName="Welcome"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Info" component={InfoScreen} />
         <Stack.Screen name="Map" component={MapScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Event" component={EventScreen} />
         <Stack.Screen name="Setting" component={SettingScreen} />
       </Stack.Navigator>

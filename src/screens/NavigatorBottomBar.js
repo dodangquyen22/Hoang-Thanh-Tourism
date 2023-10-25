@@ -9,46 +9,41 @@ import { Button } from 'react-native-elements';
 
 const BottomButtonBar = () => {
     const navigation = useNavigation();
-    const [activeIcon, setActiveIcon] = useState('')
-    const getIconColor = (buttonName) => {
-        return activeIcon === buttonName ? 'orange' : 'violet'
-    }
+    const [activeIcon, setActiveIcon] = useState('violet')
     const handlePress = (buttonName) => {
-        setActiveIcon(buttonName)
         navigation.navigate(buttonName)
     }
-
 
     return (
         <View style={globalStyles.navigator}>
 
-            <TouchableOpacity onPress={() => handlePress('Info')}>
+            <TouchableOpacity style={globalStyles.buttonNavigator} onPress={() => handlePress('Info')}>
                 <View >
-                    <MaterialCommunityIcons name="information-outline" color={getIconColor("Info")} size={32} />
+                    <MaterialCommunityIcons  name="information-outline" color={"violet"} size={32} />
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => handlePress('Map')}>
                 <View>
-                    <Icon name="map-o" color={getIconColor("Map")}  size={28}>
+                    <Icon name="map-o" color={"violet"}  size={28}>
                     </Icon>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Home')}>
                 <View>
-                    <Octicons name="home" color={getIconColor("Home")} size={40}>
+                    <Octicons name="home" color={"violet"} size={40}>
                     </Octicons>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Event')}>
                 <View>
-                    <MaterialCommunityIcons name="calendar" color={getIconColor("Event")}  size={32}>
+                    <MaterialCommunityIcons name="calendar" color={"violet"}  size={32}>
                     </MaterialCommunityIcons>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Setting')}>
                 <View>
-                    <Icon name="bars" color={getIconColor("Setting")}  size={32}>
+                    <Icon name="bars" color={"violet"}  size={32}>
                     </Icon>
                 </View>
 
