@@ -9,7 +9,7 @@ export default function SettingScreen() {
     const navigation = useNavigation();
     return (
         <View style={globalStyles.container}>
-            <Text style={globalStyles.text}>Setting Screen</Text>
+            <Text className="text-blue-500">Setting Screen</Text>
             <BottomButtonBar />
         </View>
         

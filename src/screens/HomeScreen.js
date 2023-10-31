@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, SafeAreaView } from "react-native";
+import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "./NavigatorBottomBar";
@@ -9,58 +9,63 @@ export default function HomeScreen() {
     const navigation = useNavigation();
 
     return (
-        <SafeAreaView style={globalStyles.container}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <SafeAreaView style={globalStyles.container}>
 
-            <View style={styles.imageField}>
-                <View >
-                    <SearchBar placeholder="Search..."
-                        containerStyle={styles.searchContainer}
-                        inputContainerStyle={styles.searchInputContainer}
-                    >
-                    </SearchBar>
+
+                <View style={styles.imageField}>
+                    <View >
+                        <SearchBar placeholder="Search..."
+                            containerStyle={styles.searchContainer}
+
+                            inputContainerStyle={styles.searchInputContainer}
+                        >
+                        </SearchBar>
+                    </View>
+                    <Image style={styles.imageHome} source={require("../../assets/images/camp.png")}></Image>
                 </View>
-                <Image style={styles.imageHome} source={require("../../assets/images/camp.png")}></Image>
-            </View>
-            <View style={styles.content}>
-                <View >
-                    <Text style={[globalStyles.text, styles.titleText]}>Các điểm di tích</Text>
-                    <View style={styles.location}>
-                        <TouchableOpacity style={styles.btnHome}>
-                            <Text>Di tích A</Text>
+                <View style={styles.content}>
+                    <View >
+                        <Text style={[globalStyles.text, styles.titleText]}>Các điểm di tích</Text>
+                        <View style={styles.location}>
+                            <TouchableOpacity style={styles.btnHome}>
+                                <Text>Di tích A</Text>
 
-                        </TouchableOpacity >
-                        <TouchableOpacity style={styles.btnHome}>
+                            </TouchableOpacity >
+                            <TouchableOpacity style={styles.btnHome}>
 
-                            <Text>Di tích B</Text>
+                                <Text>Di tích B</Text>
 
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.btnHome}>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.btnHome}>
 
-                            <Text>Di tích C</Text>
+                                <Text>Di tích C</Text>
 
-                        </TouchableOpacity>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View >
+                        <Text style={[globalStyles.text, styles.titleText]}>Dịch vụ</Text>
+                        <View style={styles.service}>
+                            <TouchableOpacity style={globalStyles.button}>
+                                <View>
+                                    <Text>Mua vé</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={globalStyles.button}>
+                                <View >
+                                    <Text>Đặt tour</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
-                <View >
-                    <Text style={[globalStyles.text, styles.titleText]}>Dịch vụ</Text>
-                    <View style={styles.service}>
-                        <TouchableOpacity style={globalStyles.button}>
-                            <View>
-                                <Text>Mua vé</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={globalStyles.button}>
-                            <View >
-                                <Text>Đặt tour</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
 
-            <BottomButtonBar />
 
-        </SafeAreaView>
+                <BottomButtonBar />
+
+            </SafeAreaView>
+        </TouchableWithoutFeedback>
 
     )
 }
@@ -123,11 +128,11 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         borderBottomWidth: 0,
         paddingHorizontal: 10,
-      },
-      searchInputContainer: {
+    },
+    searchInputContainer: {
         backgroundColor: '#f2f2f2',
         height: 40,
-      }
+    }
 });
 
 

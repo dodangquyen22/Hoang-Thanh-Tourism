@@ -19,31 +19,31 @@ const BottomButtonBar = () => {
 
             <TouchableOpacity style={globalStyles.buttonNavigator} onPress={() => handlePress('Info')}>
                 <View >
-                    <MaterialCommunityIcons  name="information-outline" color={"violet"} size={32} />
+                    <MaterialCommunityIcons  name="information-outline" color={"black"} size={32} />
                 </View>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => handlePress('Map')}>
                 <View>
-                    <Icon name="map-o" color={"violet"}  size={28}>
+                    <Icon name="map-o" color={"black"}  size={28}>
                     </Icon>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Home')}>
                 <View>
-                    <Octicons name="home" color={"violet"} size={40}>
+                    <Octicons name="home" color={"black"} size={40}>
                     </Octicons>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Event')}>
                 <View>
-                    <MaterialCommunityIcons name="calendar" color={"violet"}  size={32}>
+                    <MaterialCommunityIcons name="calendar" color={"black"}  size={32}>
                     </MaterialCommunityIcons>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Setting')}>
                 <View>
-                    <Icon name="bars" color={"violet"}  size={32}>
+                    <Icon name="bars" color={"black"}  size={32}>
                     </Icon>
                 </View>
 
