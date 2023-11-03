@@ -10,7 +10,7 @@ export default function InfoScreen() {
     const imageHeight = screenWidth * 0.75;
     
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <ScrollView style={styles.boxContent}>
                 
                 <Image
@@ -30,7 +30,7 @@ Năm 931, Dương Đình Nghệ đem quân từ Ái Châu ra Đại La đánh đ
                 </View>
             </ScrollView>
             <BottomButtonBar />
-        </SafeAreaView>
+        </View>
     );
 }
 

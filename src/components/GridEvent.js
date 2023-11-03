@@ -27,7 +27,7 @@ const GridEvent = () => {
     <View>
       <View style={styles.title}>
         <Text style={styles.titleText}>Sự kiện</Text>
-        <TouchableOpacity style={styles.titleIcon}>
+        <TouchableOpacity style={styles.titleIcon} >
           <MaterialCommunityIcons name="table-of-contents" color={"black"} size={40}>
           </MaterialCommunityIcons>
         </TouchableOpacity>
@@ -37,6 +37,7 @@ const GridEvent = () => {
           {data.map(item => (
             <TouchableOpacity key={item.id} style={styles.item}>
               <Text>{item.title}</Text>
+              
             </TouchableOpacity>
           ))}
         </View>

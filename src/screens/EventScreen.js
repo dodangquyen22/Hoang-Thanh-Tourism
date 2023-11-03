@@ -7,6 +7,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 export default function EventScreen() {
     const navigation = useNavigation();
+    
     return (
         <View style={styles.container}>
             {/* <View style={styles.title}>
