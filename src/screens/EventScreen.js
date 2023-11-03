@@ -16,7 +16,6 @@ export default function EventScreen() {
     
     return (
         <View style={styles.container}>
-            <Text>Event Screen</Text>
             <View style={styles.title}>
                 <Text style={styles.titleText}>Sự kiện</Text>
                 <TouchableOpacity style={styles.titleIcon} onPress={toggleView}>
