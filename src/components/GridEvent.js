@@ -1,9 +1,15 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
-import { View, ScrollView, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Text, StyleSheet, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const GridEvent = () => {
+  const renderItem = ({ item }) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{item.title}</Text>
+    </View>
+  );
+
   const data = [
     { id: 1, title: 'Item 1' },
     { id: 2, title: 'Item 2' },
@@ -24,35 +30,37 @@ const GridEvent = () => {
   ];
 
   return (
-    <View>
-      <View style={styles.title}>
-        <Text style={styles.titleText}>Sự kiện</Text>
-        <TouchableOpacity style={styles.titleIcon} >
-          <MaterialCommunityIcons name="table-of-contents" color={"black"} size={40}>
-          </MaterialCommunityIcons>
-        </TouchableOpacity>
-      </View>
-      <ScrollView>
-        <View style={styles.container}>
-          {data.map(item => (
-            <TouchableOpacity key={item.id} style={styles.item}>
-              <Text>{item.title}</Text>
+    
+      // <View style={styles.content}>
+      //     <ScrollView >
+      //   <View >
+      //     {data.map(item => (
+      //       <TouchableOpacity key={item.id} style={styles.item}>
+      //         <Text>{item.title}</Text>
               
-            </TouchableOpacity>
-          ))}
-        </View>
-      </ScrollView>
-    </View>
-
+      //       </TouchableOpacity>
+      //     ))}
+      //   </View>
+      // </ScrollView>
+      // </View>
+      <FlatList
+      data={data}
+      numColumns={2}
+      renderItem={renderItem}
+      keyExtractor={item => item.id.toString()}
+      contentContainerStyle={styles.container}
+    />
   );
+    
+
 }
 
 export default GridEvent;
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
+    flex:1,
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-between',
     padding: 10,
   },
@@ -62,26 +70,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginBottom: 20,
+    margin: 10,
     borderRadius: 5,
-  }, title: {
-    flexDirection: 'row',
-    height: Dimensions.get('window').height * 0.07,
-    marginTop: 40,
-    justifyContent: 'space-between',
-    textAlign: 'center',
-  },
-  titleText: {
-    flex: 1,
-    color: "black",
-    fontSize: 24,
-    fontWeight: "bold",
-    paddingLeft: 10
-  },
-  titleIcon: {
-    color: "black",
-    paddingRight: 10
-  },
+  }
 });
 
 

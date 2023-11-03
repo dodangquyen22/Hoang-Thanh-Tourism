@@ -4,21 +4,31 @@ import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "./NavigatorBottomBar";
 import GridEvent from "../components/GridEvent";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Notification from "../components/TableEvent";
 
 export default function EventScreen() {
     const navigation = useNavigation();
+    const [showGrid, setShowGrid] = React.useState(true);
+
+    const toggleView = () => {
+        setShowGrid(!showGrid);
+    };
     
     return (
         <View style={styles.container}>
-            {/* <View style={styles.title}>
+            <Text>Event Screen</Text>
+            <View style={styles.title}>
                 <Text style={styles.titleText}>Sự kiện</Text>
-                <TouchableOpacity style={styles.titleIcon}>
+                <TouchableOpacity style={styles.titleIcon} onPress={toggleView}>
                     <MaterialCommunityIcons name="table-of-contents" color={"black"} size={40}>
                     </MaterialCommunityIcons>
                 </TouchableOpacity>
-            </View> */}
-            <GridEvent />
-            <BottomButtonBar />
+            </View>
+            {/* <GridEvent />
+
+            <Notification /> */}
+            {showGrid ? <Notification /> : <GridEvent />}
+            <BottomButtonBar /> 
         </View>
     )
 }
