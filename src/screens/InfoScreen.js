@@ -17,7 +17,9 @@ export default function InfoScreen() {
                     source={require('../../assets/images/hiking.png')}
                     style={styles.image}
                 />
-                <View style={styles.descriptionContainer}>
+                
+                <ScrollView style={styles.descriptionContainer}>
+                    <Text style={styles.title}>Tổng quan</Text>
                     <Text style={styles.descriptionText}>
                         Hoàng thành Thăng Long (chữ Hán: 昇龍皇城; Hán-Việt: Thăng Long Hoàng thành) là quần thể di tích gắn với lịch sử kinh thành Thăng Long - Đông Kinh và tỉnh thành Hà Nội bắt đầu từ thời kì tiền Thăng Long (An Nam đô hộ phủ thế kỷ VII) qua thời Đinh - Tiền Lê, phát triển mạnh dưới thời Lý, Trần, Lê và thành Hà Nội dưới triều Nguyễn. Đây là công trình kiến trúc đồ sộ, được các triều vua xây dựng trong nhiều giai đoạn lịch sử và trở thành một trong những di tích quan trọng bậc nhất trong hệ thống các di tích Việt Nam.
                         Giai đoạn Tiền Thăng Long
@@ -27,7 +29,7 @@ Cuối thế kỷ IX, chính quyền trung ương nhà Đường suy yếu nghi�
 
 Năm 931, Dương Đình Nghệ đem quân từ Ái Châu ra Đại La đánh đuổi thứ sử Lý Tiến của nước Nam Hán. Lý Tiến bỏ chạy, Dương Đình Nghệ giải phóng thành Đại La giành quyền tự chủ cho đất nước Việt được 6 năm thì bị Kiều Công Tiễn giết hại. Năm 938, Ngô Quyền hạ thành Đại La, tiêu diệt Kiều Công Tiễn. Sau đó, ông chỉ huy trận Bạch Đằng, đánh bại quân Nam Hán, giết chết Hoằng Tháo. Mùa xuân năm 939, ông xưng là Ngô Vương, không đóng đô ở Đại La mà về Cổ Loa. Sau khi Đinh Tiên Hoàng dẹp loạn 12 sứ quân, các Triều đại Đinh, Tiền Lê đóng đô ở Hoa Lư. Đại La lúc này do Đô hộ phủ sĩ sư Lưu Cơ cai quản và tu sửa Hoàng thành quay về hướng nam (hướng về kinh đô Hoa Lư thay vì hướng về phương bắc như chính quyền đô hộ đã làm) vì thế mà vị quan này được coi là người "giao chìa khóa" thành Đại La cho Lý Thái Tổ.[4][5]
                     </Text>
-                </View>
+                </ScrollView>
             </ScrollView>
             <BottomButtonBar />
         </View>
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     boxContent: {
-        position: 'absolute',
+        // position: 'absolute',
         top: 20
     },
     image: {
@@ -53,14 +55,22 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 2, height: 2 },
         shadowOpacity: 0.8,
         shadowRadius: 4,
+        padding: 10,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        margin: 10
     },
     descriptionContainer: {
         marginTop: 20,
-        paddingHorizontal: 10,
+        padding: 20,
     },
     descriptionText: {
         fontSize: 16,
         textAlign: 'center',
+        marginBottom: 100
     },
 });
 
