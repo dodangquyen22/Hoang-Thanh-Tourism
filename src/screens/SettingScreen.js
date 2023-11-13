@@ -3,15 +3,12 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
 import { theme } from "../theme";
-import BottomButtonBar from "./NavigatorBottomBar";
-
+import BottomButtonBar from "../components/NavigatorBottomBar";
 export default function SettingScreen() {
     const navigation = useNavigation();
     return (
-        <View style={globalStyles.container}>
-            <Text className="text-blue-500">Setting Screen</Text>
-            <BottomButtonBar />
-        </View>
-        
+            <Text>
+                sad
+            </Text>
     )
 }

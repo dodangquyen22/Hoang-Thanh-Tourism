@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import BottomButtonBar from "./NavigatorBottomBar";
+import BottomButtonBar from "../components/NavigatorBottomBar";
 import GridEvent from "../components/GridEvent";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 

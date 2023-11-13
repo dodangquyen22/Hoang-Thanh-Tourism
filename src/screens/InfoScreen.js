@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import BottomButtonBar from "./NavigatorBottomBar";
+import BottomButtonBar from "../components/NavigatorBottomBar";
 import { ScrollView, FlatList } from "react-native";
 
 export default function InfoScreen() {

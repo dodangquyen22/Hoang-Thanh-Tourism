@@ -17,7 +17,7 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         position: 'absolute',
-        bottom: 0,
+        bottom: 20,
         left: 0,
         right: 0,
         paddingVertical: 10,
@@ -25,6 +25,7 @@ export const globalStyles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: 'gray',
         backgroundColor: 'white',
+
     },
     buttonNavigator: {
       backgroundColor: '#fff',

@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
-import BottomButtonBar from "./NavigatorBottomBar";
+import BottomButtonBar from "../components/NavigatorBottomBar";
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location'
 import { Button } from "react-native-elements";

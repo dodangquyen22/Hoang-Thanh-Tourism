@@ -1,8 +1,10 @@
 import * as React from "react";
-import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, SafeAreaView, Keyboard, TouchableWithoutFeedback, ScrollView } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
-import BottomButtonBar from "./NavigatorBottomBar";
+import BottomButtonBar from "../components/NavigatorBottomBar";
+import Categories from "../components/categories";
+import { theme } from '../theme';
 import { SearchBar } from 'react-native-elements';
 import { useState } from 'react';
 export default function HomeScreen() {
@@ -25,37 +27,27 @@ export default function HomeScreen() {
                     <Image style={styles.imageHome} source={require("../../assets/images/camp.png")}></Image>
                 </View>
                 <View style={styles.content}>
+                   <Categories></Categories>
                     <View >
-                        <Text style={[globalStyles.text, styles.titleText]}>Các điểm di tích</Text>
-                        <View style={styles.location}>
-                            <TouchableOpacity style={styles.btnHome}>
-                                <Text>Di tích A</Text>
-
-                            </TouchableOpacity >
-                            <TouchableOpacity style={styles.btnHome}>
-
-                                <Text>Di tích B</Text>
-
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.btnHome}>
-
-                                <Text>Di tích C</Text>
-
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <View >
-                        <Text style={[globalStyles.text, styles.titleText]}>Dịch vụ</Text>
+                        <Text style={{fontSize: 23, color: theme.text, marginLeft: 20, marginBottom: 20, marginTop: 10}} className="font-semibold text-neutral-700">Dịch vụ</Text>
                         <View style={styles.service}>
-                            <TouchableOpacity style={globalStyles.button}>
-                                <View>
-                                    <Text>Mua vé</Text>
-                                </View>
+                            <TouchableOpacity>
+                            <View style={styles.imageContainer}>
+                                <Image
+                                    source={require("../../assets/images/tickets.png")}
+                                    style={styles.image}
+                                />
+                                <Text style={styles.text}>Mua vé</Text>
+                            </View>
                             </TouchableOpacity>
-                            <TouchableOpacity style={globalStyles.button}>
-                                <View >
-                                    <Text>Đặt tour</Text>
-                                </View>
+                            <TouchableOpacity>
+                            <View style={styles.imageContainer}>
+                                <Image
+                                    source={require("../../assets/images/tickets.png")}
+                                    style={styles.image}
+                                />
+                                <Text style={styles.text}>Mua vé</Text>
+                            </View>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -80,10 +72,6 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 5,
         backgroundColor: 'violet'
-    },
-    searchBar: {
-        color: 'white',
-        height: 30,
     },
     imageHome: {
         width: Dimensions.get('window').width,
@@ -128,11 +116,24 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         borderBottomWidth: 0,
         paddingHorizontal: 10,
+        paddingTop: 20,
     },
     searchInputContainer: {
         backgroundColor: '#f2f2f2',
         height: 40,
-    }
+    },
+    imageContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        marginLeft: 30
+      },
+      image: {
+        width: 50, // Điều chỉnh chiều rộng của hình ảnh theo ý muốn
+        height: 50, // Điều chỉnh chiều cao của hình ảnh theo ý muốn
+      },
+      text: {
+        marginTop: 5, // Điều chỉnh khoảng cách giữa hình ảnh và văn bản theo ý muốn
+      },
 });
 
 
