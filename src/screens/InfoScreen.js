@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, SafeAreaVi
 import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "./NavigatorBottomBar";
 import { ScrollView, FlatList } from "react-native";
+import SlideImage from "../components/SlideImage";
 
 export default function InfoScreen() {
     const navigation = useNavigation();
@@ -13,10 +14,11 @@ export default function InfoScreen() {
         <View style={styles.container}>
             <ScrollView style={styles.boxContent}>
                 
-                <Image
+                <SlideImage />
+                {/* <Image
                     source={require('../../assets/images/hiking.png')}
                     style={styles.image}
-                />
+                /> */}
                 
                 <ScrollView style={styles.descriptionContainer}>
                     <Text style={styles.title}>Tổng quan</Text>

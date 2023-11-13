@@ -7,6 +7,9 @@ import { useNavigation } from "@react-navigation/native";
 
 const NotificationScreen = () => {
     const navigation = useNavigation();
+    const handlePress = () => {
+        navigation.navigate("EventDetails");
+    }
     const notifications = [
         {
             id: 1,
@@ -52,21 +55,24 @@ const NotificationScreen = () => {
 
     return (
         <View style={styles.container} contentContainerStyle={styles.center}>
-            {/* <View style={styles.title}>
-                <Text style={styles.titleText}>Sự kiện</Text>
-                <TouchableOpacity style={styles.titleIcon} onPress={navigation.navigate("EventGrid")}>
-                    <MaterialCommunityIcons name="table-of-contents" color={"black"} size={40}>
-                    </MaterialCommunityIcons>
-                </TouchableOpacity>
-            </View> */}
+
             {notifications.map(notification => (
+
                 <View key={notification.id} style={styles.notificationItem}>
-                    <Image source={notification.image} style={styles.image} />
-                    <Text style={styles.title}>{notification.title}</Text>
+                    <TouchableOpacity onPress={handlePress}>
+                        <Image source={notification.image} style={styles.image} />
+
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={handlePress}>
+                        <Text style={styles.title}>{notification.title}</Text>
+
+                    </TouchableOpacity>
+
                     <MaterialCommunityIcons name="bell-ring" color={"orange"} size={32}>
                     </MaterialCommunityIcons>
                 </View>
             ))}
+
         </View>
     );
 };

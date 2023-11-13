@@ -2,12 +2,19 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import { View, ScrollView, TouchableOpacity, Text, StyleSheet, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from "@react-navigation/native";
 
 const GridEvent = () => {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate("EventDetails");
+  }
   const renderItem = ({ item }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{item.title}</Text>
-    </View>
+    <TouchableOpacity onPress={handlePress}>
+      <View style={styles.item}>
+        <Text style={styles.title}>{item.title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 
   const data = [
@@ -30,20 +37,8 @@ const GridEvent = () => {
   ];
 
   return (
-    
-      // <View style={styles.content}>
-      //     <ScrollView >
-      //   <View >
-      //     {data.map(item => (
-      //       <TouchableOpacity key={item.id} style={styles.item}>
-      //         <Text>{item.title}</Text>
-              
-      //       </TouchableOpacity>
-      //     ))}
-      //   </View>
-      // </ScrollView>
-      // </View>
-      <FlatList
+
+    <FlatList
       data={data}
       numColumns={2}
       renderItem={renderItem}
@@ -51,7 +46,7 @@ const GridEvent = () => {
       contentContainerStyle={styles.container}
     />
   );
-    
+
 
 }
 
@@ -59,7 +54,7 @@ export default GridEvent;
 
 const styles = StyleSheet.create({
   content: {
-    flex:1,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
