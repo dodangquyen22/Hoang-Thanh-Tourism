@@ -36,17 +36,17 @@ const NotificationScreen = () => {
         {
             id: 6,
             image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
+            title: 'Thông báo 6',
         },
         {
             id: 7,
             image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
+            title: 'Thông báo 7',
         },
         {
             id: 8,
             image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
+            title: 'Thông báo 8',
         },
     ];
 

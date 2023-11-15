@@ -7,6 +7,7 @@ import InfoScreen from "../screens/InfoScreen";
 import MapScreen from "../screens/MapScreen";
 import EventScreen from "../screens/EventScreen";
 import SettingScreen from "../screens/SettingScreen";
+import TicketScreen from "../screens/TicketScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,15 @@ function AppNavigation() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Event" component={EventScreen} />
         <Stack.Screen name="Setting" component={SettingScreen} />
+        <Stack.Screen name="Ticket" component={TicketScreen}
+//            options={{
+//                headerShown: true,
+//                navigationOptions: {
+//                    header: ({ goBack }) =>
+//                        ({left: <Left onPress={goBack} />,}),
+//                },
+//            }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

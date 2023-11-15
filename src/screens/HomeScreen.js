@@ -7,7 +7,9 @@ import { SearchBar } from 'react-native-elements';
 import { useState } from 'react';
 export default function HomeScreen() {
     const navigation = useNavigation();
-
+    const handlePress = (buttonName) => {
+        navigation.navigate(buttonName)
+    }
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <SafeAreaView style={globalStyles.container}>
@@ -47,7 +49,7 @@ export default function HomeScreen() {
                     <View >
                         <Text style={[globalStyles.text, styles.titleText]}>Dịch vụ</Text>
                         <View style={styles.service}>
-                            <TouchableOpacity style={globalStyles.button}>
+                            <TouchableOpacity style={globalStyles.button} onPress={() => handlePress('Ticket')}>
                                 <View>
                                     <Text>Mua vé</Text>
                                 </View>
