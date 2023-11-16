@@ -9,7 +9,9 @@ import { SearchBar } from 'react-native-elements';
 import { useState } from 'react';
 export default function HomeScreen() {
     const navigation = useNavigation();
-
+    const handlePress = (buttonName) => {
+        navigation.navigate(buttonName)
+    }
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <SafeAreaView style={globalStyles.container}>
@@ -31,7 +33,7 @@ export default function HomeScreen() {
                     <View >
                         <Text style={{fontSize: 23, color: theme.text, marginLeft: 20, marginBottom: 20, marginTop: 10}} className="font-semibold text-neutral-700">Dịch vụ</Text>
                         <View style={styles.service}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => handlePress('Ticket')}>
                             <View style={styles.imageContainer}>
                                 <Image
                                     source={require("../../assets/images/tickets.png")}
@@ -46,7 +48,7 @@ export default function HomeScreen() {
                                     source={require("../../assets/images/tickets.png")}
                                     style={styles.image}
                                 />
-                                <Text style={styles.text}>Mua vé</Text>
+                                <Text style={styles.text}>Đặt tour</Text>
                             </View>
                             </TouchableOpacity>
                         </View>
