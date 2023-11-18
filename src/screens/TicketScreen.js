@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Button, StyleSheet, Alert, Dimensions, Sa
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
-//import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 
 import BottomButtonBar from "../components/NavigatorBottomBar";
 
@@ -44,7 +44,7 @@ export default function TicketScreen() {
                     value={number}
                     keyboardType="numeric"/>
                 <Text style={styles.label}>Ngày tham quan:</Text>
-//                <DatePicker selected={date} onChange={(date) => setDate(date)} />
+               {/* <DatePicker selected={date} onChange={(date) => setDate(date)} /> */}
             </SafeAreaView>
             <BottomButtonBar />
         </View>

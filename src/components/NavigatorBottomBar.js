@@ -9,7 +9,7 @@ import { Button } from 'react-native-elements';
 
 const BottomButtonBar = () => {
     const navigation = useNavigation();
-    const [activeIcon, setActiveIcon] = useState('violet')
+    const [activeIcon, setActiveIcon] = useState()
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName)
     }
@@ -18,38 +18,39 @@ const BottomButtonBar = () => {
         <View style={globalStyles.navigator}>
 
             <TouchableOpacity style={globalStyles.buttonNavigator} onPress={() => handlePress('Info')}>
-                <View >
-                    <MaterialCommunityIcons  name="information-outline" color={"black"} size={32} />
+                <View style={styles.buttonContainer}>
+                    <MaterialCommunityIcons name="information-outline" color={"black"} size={32} />
+                    <Text style={styles.textNavigator}>Thông tin</Text>
                 </View>
-                <Text style={styles.textNavigator}>Info</Text>
+                
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => handlePress('Map')}>
-                <View>
-                    <Icon name="map-o" color={"black"}  size={28}>
+                <View style={styles.buttonContainer}>
+                    <Icon name="map-o" color={"black"} size={28}>
                     </Icon>
-                    <Text style={styles.textNavigator}>Map</Text>
+                    <Text style={styles.textNavigator}>Bản đồ</Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Home')}>
-                <View>
+                <View style={styles.buttonContainer}>
                     <Octicons name="home" color={"black"} size={32}>
                     </Octicons>
-                    <Text style={styles.textNavigator}>Home</Text>
+                    <Text style={styles.textNavigator}>Trang chủ</Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Event')}>
-                <View>
-                    <MaterialCommunityIcons name="calendar" color={"black"}  size={32}>
+                <View style={styles.buttonContainer}>
+                    <MaterialCommunityIcons name="calendar" color={"black"} size={32}>
                     </MaterialCommunityIcons>
-                    <Text style={styles.textNavigator}>Events</Text>
+                    <Text style={styles.textNavigator}>Sự kiện</Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => handlePress('Setting')}>
-                <View>
-                    <Icon name="bars" color={"black"}  size={32}>
+                <View style={styles.buttonContainer}>
+                    <Icon name="bars" color={"black"} size={32}>
                     </Icon>
-                    <Text style={styles.textNavigator}>Setting</Text>
+                    <Text style={styles.textNavigator}>Menu</Text>
                 </View>
 
             </TouchableOpacity>
@@ -58,7 +59,7 @@ const BottomButtonBar = () => {
 };
 
 const handlePress = () => {
-    
+
 }
 
 
@@ -71,5 +72,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    buttonContainer: {
+        alignItems: 'center',
+    },
 })
