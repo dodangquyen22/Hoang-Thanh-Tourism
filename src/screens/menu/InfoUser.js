@@ -14,7 +14,7 @@ export default function UserInfoScreen() {
                     </Ionicons>
                 </TouchableOpacity>
                 <View>
-                    <Text style={styles.title}>Thông tin cá nhân</Text>
+                    <Text style={styles.titleHeader}>Thông tin cá nhân</Text>
                 </View>
             </View>
             <View>
@@ -55,6 +55,12 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderBottomWidth: 2,
         top: 0,
+    }, titleHeader: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1,
+        marginLeft: 80,
     },
     title: {
         fontSize: 24,

@@ -12,6 +12,8 @@ import EventDetails from "../screens/EventDetails";
 import InfoUserScreen from "../screens/menu/InfoUser";
 import SupportScreen from "../screens/menu/Support";
 import ReviewScreen from "../screens/menu/Rate";
+import ChangePasswordScreen from "../screens/menu/ChangePassword";
+import TransactionHistoryScreen from "../screens/menu/TransactionHistory";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +36,8 @@ function AppNavigation() {
         <Stack.Screen name="InfoUser" component={InfoUserScreen} />
         <Stack.Screen name="Support" component={SupportScreen} />
         <Stack.Screen name="Rate" component={ReviewScreen} />
+        <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
+        <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

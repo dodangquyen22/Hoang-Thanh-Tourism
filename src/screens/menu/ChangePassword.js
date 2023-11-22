@@ -25,7 +25,7 @@ export default function ChangePasswordScreen() {
                     </Ionicons>
                 </TouchableOpacity>
                 <View>
-                    <Text style={styles.title}>Đổi mật khẩu</Text>
+                    <Text style={styles.titleHeader}>Đổi mật khẩu</Text>
                 </View>
             </View>
             <TextInput
@@ -76,6 +76,11 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderBottomWidth: 2,
         top: 0,
+    }, titleHeader: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginLeft: 125,
     },
     title: {
         fontSize: 24,

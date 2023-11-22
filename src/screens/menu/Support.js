@@ -21,7 +21,7 @@ function SupportScreen() {
                     </Ionicons>
                 </TouchableOpacity>
                 <View>
-                    <Text style={styles.title}>Hỗ trợ</Text>
+                    <Text style={styles.titleHeader}>Hỗ trợ</Text>
                 </View>
             </View>
 
@@ -57,6 +57,11 @@ const styles = StyleSheet.create({
         top: 0,
     }, icon: {
         textAlign: 'center',
+    }, titleHeader: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginLeft: 125,
     },
     titleText: {
         flex: 2,

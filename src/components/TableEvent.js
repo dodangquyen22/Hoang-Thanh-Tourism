@@ -1,132 +1,92 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from "@react-navigation/native";
 
-
 const NotificationScreen = () => {
-    const navigation = useNavigation();
-    const handlePress = () => {
-        navigation.navigate("EventDetails");
-    }
-    const notifications = [
-        {
-            id: 1,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 1',
-        },
-        {
-            id: 2,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 2',
-        },
-        {
-            id: 3,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 3',
-        },
-        {
-            id: 4,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 4',
-        },
-        {
-            id: 5,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
-        },
-        {
-            id: 6,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
-        },
-        {
-            id: 7,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
-        },
-        {
-            id: 8,
-            image: require('../../assets/images/beach.png'),
-            title: 'Thông báo 5',
-        },
-    ];
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate("EventDetails");
+  };
 
-    return (
-        <View style={styles.container} contentContainerStyle={styles.center}>
+  const eventData = [
+    {
+      id: 1,
+      image: require('../../assets/images/beach.png'),
+      title: 'Thông báo 1',
+    },
+    {
+      id: 2,
+      image: require('../../assets/images/beach.png'),
+      title: 'Thông báo 2',
+    }, 
+    {
+        id: 3,
+        image: require('../../assets/images/beach.png'),
+        title: 'Thông báo 3',
+      },
+      {
+        id: 4,
+        image: require('../../assets/images/beach.png'),
+        title: 'Thông báo 4',
+      },
+      {
+        id: 5,
+        image: require('../../assets/images/beach.png'),
+        title: 'Thông báo 5',
+      },
+    // Thêm các sự kiện khác vào đây
+  ];
 
-            {notifications.map(notification => (
+  const renderItem = ({ item }) => (
+    <TouchableOpacity style={styles.eventItem} onPress={handlePress}>
+      <Image source={item.image} style={styles.eventImage} />
+      <Text>{item.title}</Text>
+      <MaterialCommunityIcons name="bell-ring" color="orange" size={32} />
+    </TouchableOpacity>
+  );
 
-                <View key={notification.id} style={styles.notificationItem}>
-                    <TouchableOpacity onPress={handlePress}>
-                        <Image source={notification.image} style={styles.image} />
-
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={handlePress}>
-                        <Text style={styles.title}>{notification.title}</Text>
-
-                    </TouchableOpacity>
-
-                    <MaterialCommunityIcons name="bell-ring" color={"orange"} size={32}>
-                    </MaterialCommunityIcons>
-                </View>
-            ))}
-
-        </View>
-    );
+  return (
+    <FlatList
+      data={eventData}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
+      style={styles.flatList}
+    />
+  );
 };
-export default NotificationScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }, center: {
-        alignItems: 'center',
-    },
-    notificationItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 16,
-        height: 80,
-        width: Dimensions.get('window').width,
-        paddingVertical: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
-    },
-    image: {
-        width: 100,
-        height: 60,
-        marginRight: 16,
-    },
-    title: {
-        flex: 1,
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    icon: {
-        width: 20,
-        height: 20,
-    }, title: {
-        flexDirection: 'row',
-        height: Dimensions.get('window').height * 0.08,
-        marginTop: 40,
-        justifyContent: 'space-between',
-        textAlign: 'center',
-    },
-    titleText: {
-        flex: 1,
-        color: "black",
-        fontSize: 24,
-        fontWeight: "bold",
-        paddingLeft: 10
-    },
-    titleIcon: {
-        color: "black",
-        paddingRight: 10
-    },
+  eventItem: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+    height: 80,
+    width: Dimensions.get('window').width * 0.98,
+  },
+  eventImage: {
+    width: 120,
+    height: 70,
+    marginRight: 10,
+    left: 0
+  },
+  eventTitle: {
+    flex: 1,
+    textAlign: 'center',
+    marginRight: 10,
+  }, flatList: {
+    height: Dimensions.get('window').height * 0.4,
+  },
 });
 
+export default NotificationScreen;

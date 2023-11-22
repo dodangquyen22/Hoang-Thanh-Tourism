@@ -27,7 +27,7 @@ const Settings = () => {
             <Text style={styles.sidebarText}>Đánh giá</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ChangePassword")}>
           <View style={[styles.sidebarItem, styles.sidebarItem]}>
             <MaterialIcons name="edit" size={24} color="black" />
             <Text style={styles.sidebarText}>Đổi mật khẩu</Text>
@@ -39,10 +39,16 @@ const Settings = () => {
             <Text style={styles.sidebarText}>Hỗ trợ</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
           <View style={[styles.sidebarItem, styles.sidebarItem]}>
             <Ionicons name="language-outline" size={24} color="black" />
             <Text style={styles.sidebarText}>Ngôn ngữ</Text>
+          </View>
+        </TouchableOpacity> */}
+        <TouchableOpacity onPress={() => navigation.navigate("TransactionHistory")}>
+          <View style={[styles.sidebarItem, styles.sidebarItem]}>
+            <MaterialCommunityIcons name="history" size={24} color="black" />
+            <Text style={styles.sidebarText}>Lịch sử giao dịch</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity>
