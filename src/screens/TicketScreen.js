@@ -1,21 +1,53 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity, Button, StyleSheet, Alert, Dimensions, SafeAreaView, TextInput} from "react-native";
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
-// import DatePicker from "react-datepicker";
+import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 import BottomButtonBar from "../components/NavigatorBottomBar";
 
 export default function TicketScreen() {
     const [text, onChangeText] = React.useState();
     const [number, onChangeNumber] = React.useState();
-    const [date, setDate] = React.useState('09-10-2020');
+    const [date, setDate] = React.useState(new Date());
+
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate;
+        setDate(currentDate);
+    };
+
+    const showMode = (currentMode) => {
+        DateTimePickerAndroid.open({
+        value: date,
+        onChange,
+        mode: currentMode,
+        is24Hour: true,
+        });
+    };
+
+    const showDatepicker = () => {
+        showMode('date');
+    };
+
+    const showTimepicker = () => {
+        showMode('time');
+    };
 
     const navigation = useNavigation();
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName)
-    }
+    };
+
+    const formatDate = (date) => {
+        return `${date.getDate()}/${date.getMonth() +
+          1}/${date.getFullYear()}`;
+    };
+
+    const typeDate = () => {
+        this.myTextInput.clear();
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.title}>
@@ -44,7 +76,16 @@ export default function TicketScreen() {
                     value={number}
                     keyboardType="numeric"/>
                 <Text style={styles.label}>Ngày tham quan:</Text>
-               {/* <DatePicker selected={date} onChange={(date) => setDate(date)} /> */}
+                <TouchableOpacity style={styles.labelContainer} onPress={showDatepicker}>
+                    <TextInput
+                        style={styles.inputDate}
+                        onChange={setDate}
+                        value={formatDate(date)}
+                        keyboardType="numeric"
+                        placeholder='DD/MM/YYYY'
+                        ref= {this.myTextInput} />
+                    <FontAwesome style={styles.calendar} name="calendar" size={20}></FontAwesome>
+                </TouchableOpacity>
             </SafeAreaView>
             <BottomButtonBar />
         </View>
@@ -96,5 +137,21 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         fontWeight: "bold",
         fontSize: 15,
+    },
+    labelContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    calendar: {
+        flex: 1,
+        marginTop: 20,
+    },
+    inputDate: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        borderRadius: 8,
+        padding: 10,
+        flex: 8,
     },
 })
