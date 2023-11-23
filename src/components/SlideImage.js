@@ -1,6 +1,5 @@
 import { SliderBox, ImageSlider } from 'react-native-image-slider-box';
 import { View } from 'react-native';
-import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 
 const SlideImage = () => {
     const images = {
