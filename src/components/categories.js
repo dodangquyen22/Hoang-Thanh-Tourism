@@ -1,16 +1,21 @@
 import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native'
 import React from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { useNavigation } from "@react-navigation/native";
 import { theme } from '../theme';
-import { categoriesData } from '../constants';
+import { destinationData } from '../constants';
 
 export default function Categories() {
+  const navigation = useNavigation();
+    const handlePress = (buttonName, data) => {
+        navigation.navigate(buttonName, data)
+    }
   return (
     <View className="space-y-5">
       <View className="mx-5 flex-row justify-between items-center">
         <Text style={{fontSize: 23, color: theme.text}} className="font-semibold text-neutral-700">Các điểm di tích</Text>
         <TouchableOpacity>
-            <Text style={{fontSize: wp(4), color: theme.text}}>See all</Text>
+            {/* <Text style={{fontSize: wp(4), color: theme.text}}>See all</Text> */}
         </TouchableOpacity>
       </View>
       <ScrollView
@@ -20,11 +25,11 @@ export default function Categories() {
         showsHorizontalScrollIndicator={false}
       >
         {
-            categoriesData.map((cat,index)=>{
+            destinationData.map((cat,index)=>{
                 return (
-                    <TouchableOpacity key={index} className="flex items-center space-y-2">
-                        <Image source={cat.image} className="rounded-3xl" style={{width: wp(20), height: wp(19)}} />
-                        <Text className="text-neutral-700 font-medium" style={{fontSize: wp(3)}}>{cat.title}</Text>
+                    <TouchableOpacity onPress={() => handlePress('Destination', {...cat})}  key={index} className="flex items-center space-y-2">
+                        <Image source={cat.image} className="rounded-3xl" style={{width: wp(27), height: wp(19)}} />
+                        <Text className="text-neutral-700 font-medium" style={{fontSize: wp(3.2)}}>{cat.title}</Text>
                     </TouchableOpacity>
                 )
             })

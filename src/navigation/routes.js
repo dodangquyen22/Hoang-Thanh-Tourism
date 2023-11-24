@@ -14,6 +14,7 @@ import SupportScreen from "../screens/menu/Support";
 import ReviewScreen from "../screens/menu/Rate";
 import ChangePasswordScreen from "../screens/menu/ChangePassword";
 import TransactionHistoryScreen from "../screens/menu/TransactionHistory";
+import DestinationScreen from "../screens/DestinationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,7 @@ function AppNavigation() {
         <Stack.Screen name="Rate" component={ReviewScreen} />
         <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
         <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
+        <Stack.Screen name="Destination" component={DestinationScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
