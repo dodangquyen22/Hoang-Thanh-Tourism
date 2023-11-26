@@ -1,24 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
 
-const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setCLicked}) => {
+const SearchBar = () => {
+  const [searchPhrase, setSearchPhrase] = useState("");
+  const [clicked, setClicked] = useState(false);
+
+  const handleCancel = () => {
+    Keyboard.dismiss();
+    setSearchPhrase("");
+    setClicked(false);
+  };
+
   return (
     <View style={styles.container}>
       <View
-        style={
-          clicked
-            ? styles.searchBar__clicked
-            : styles.searchBar__unclicked
-        }
+        style={clicked ? styles.searchBar__clicked : styles.searchBar__unclicked}
       >
         {/* search Icon */}
-        <Feather
-          name="search"
-          size={20}
-          color="black"
-          style={{ marginLeft: 1 }}
-        />
+        <Feather name="search" size={20} color="black" style={{ marginLeft: 1 }} />
         {/* Input field */}
         <TextInput
           style={styles.input}
@@ -31,26 +31,27 @@ const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setCLicked}) => {
         />
         {/* cross Icon, depending on whether the search bar is clicked or not */}
         {clicked && (
-          <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
-              setSearchPhrase("")
-          }}/>
+          <Entypo
+            name="cross"
+            size={20}
+            color="black"
+            style={{ padding: 1 }}
+            onPress={() => {
+              setSearchPhrase("");
+            }}
+          />
         )}
       </View>
       {/* cancel button, depending on whether the search bar is clicked or not */}
       {clicked && (
-        <View>
-          <Button
-            title="Cancel"
-            onPress={() => {
-              Keyboard.dismiss();
-              setClicked(false);
-            }}
-          ></Button>
+        <View style={styles.cancelButton}>
+          <Button title="Cancel" onPress={handleCancel} />
         </View>
       )}
     </View>
   );
 };
+
 export default SearchBar;
 
 // styles
@@ -60,8 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    width: "90%",
-
+    width: "97%",
   },
   searchBar__unclicked: {
     padding: 10,
@@ -84,5 +84,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 10,
     width: "90%",
+  },
+  cancelButton: {
+    marginLeft: 5,
   },
 });

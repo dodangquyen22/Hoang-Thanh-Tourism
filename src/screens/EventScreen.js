@@ -9,17 +9,20 @@ import Notification from "../components/TableEvent";
 export default function EventScreen() {
     const navigation = useNavigation();
     const [showGrid, setShowGrid] = React.useState(true);
+    const [iconTable, setIcon] = React.useState(false);
 
     const toggleView = () => {
         setShowGrid(!showGrid);
+        setIcon(!iconTable)
     };
+
     
     return (
         <View style={styles.container}>
             <View style={styles.title}>
                 <Text style={styles.titleText}>Sự kiện</Text>
                 <TouchableOpacity style={styles.titleIcon} onPress={toggleView}>
-                    <MaterialCommunityIcons name="table-of-contents" color={"black"} size={40}>
+                    <MaterialCommunityIcons name={iconTable ? 'table-of-contents' : 'dots-grid'} color={"black"} size={40}>
                     </MaterialCommunityIcons>
                 </TouchableOpacity>
             </View>

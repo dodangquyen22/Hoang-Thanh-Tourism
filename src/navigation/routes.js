@@ -9,6 +9,12 @@ import EventScreen from "../screens/EventScreen";
 import SettingScreen from "../screens/SettingScreen";
 import TicketScreen from "../screens/TicketScreen";
 import EventDetails from "../screens/EventDetails";
+import InfoUserScreen from "../screens/menu/InfoUser";
+import SupportScreen from "../screens/menu/Support";
+import ReviewScreen from "../screens/menu/Rate";
+import ChangePasswordScreen from "../screens/menu/ChangePassword";
+import TransactionHistoryScreen from "../screens/menu/TransactionHistory";
+import DestinationScreen from "../screens/DestinationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +34,12 @@ function AppNavigation() {
         <Stack.Screen name="Setting" component={SettingScreen} />
         <Stack.Screen name="Ticket" component={TicketScreen} />
         <Stack.Screen name="EventDetails" component={EventDetails} />
+        <Stack.Screen name="InfoUser" component={InfoUserScreen} />
+        <Stack.Screen name="Support" component={SupportScreen} />
+        <Stack.Screen name="Rate" component={ReviewScreen} />
+        <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
+        <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
+        <Stack.Screen name="Destination" component={DestinationScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

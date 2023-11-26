@@ -3,9 +3,10 @@ import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, Sa
 import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
+import SearchBar from "../components/Search";
+import SlideImage from "../components/SlideImage";
 import Categories from "../components/categories";
 import { theme } from '../theme';
-import { SearchBar } from 'react-native-elements';
 import { useState } from 'react';
 export default function HomeScreen() {
     const navigation = useNavigation();
@@ -18,15 +19,10 @@ export default function HomeScreen() {
 
 
                 <View style={styles.imageField}>
-                    <View >
-                        <SearchBar placeholder="Search..."
-                            containerStyle={styles.searchContainer}
-
-                            inputContainerStyle={styles.searchInputContainer}
-                        >
-                        </SearchBar>
+                    <SearchBar></SearchBar>
+                    <View style={{top:20}}>
+                        <SlideImage></SlideImage>
                     </View>
-                    <Image style={styles.imageHome} source={require("../../assets/images/camp.png")}></Image>
                 </View>
                 <View style={styles.content}>
                    <Categories></Categories>
@@ -66,14 +62,14 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
     imageField: {
-        top: 24,
+        top: 10,
         left: 0,
         right: 0,
         position: 'absolute',
         shadowColor: '#202020',
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 5,
-        backgroundColor: 'violet'
+        backgroundColor: ''
     },
     imageHome: {
         width: Dimensions.get('window').width,
