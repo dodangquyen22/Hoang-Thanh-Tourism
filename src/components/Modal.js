@@ -65,12 +65,12 @@ const styles = StyleSheet.create({
     body: {
         justifyContent: "center",
         margin: 20,
-        minHeight: 100,
+        minHeight: 150,
     },
     footer: {
         justifyContent: "center",
         alignItems: "center",
-        padding: 10,
+        padding: 20,
         flexDirection: "row",
     },
 });

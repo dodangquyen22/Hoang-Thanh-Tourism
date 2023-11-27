@@ -5,9 +5,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
-import BottomButtonBar from "../components/NavigatorBottomBar";
-import { Modal } from "../components/Modal";
-import { ticketStyles } from "../styles/globalStyles";
+import BottomButtonBar from "../../components/NavigatorBottomBar";
+import { Modal } from "../../components/Modal";
+import { ticketStyles } from "../../styles/globalStyles";
 
 export default function TicketScreen() {
     const [text, onChangeText] = React.useState();
@@ -164,13 +164,15 @@ export default function TicketScreen() {
                 <Modal.Container>
                     <Modal.Header title="Xác nhận thông tin" />
                     <Modal.Body>
-                        <Text style={ticketStyles.subTitle}>Người đặt vé: {text}</Text>
-                        <Text style={ticketStyles.subTitle}>Số điện thoại: {number}</Text>
-                        <Text style={ticketStyles.subTitle}>Thông tin vé: {adultTicket} vé người lớn + {childTicket} vé học sinh /
+                        <Text style={ticketStyles.popText}>Người đặt vé: {text}</Text>
+                        <Text style={ticketStyles.popText}>Số điện thoại: {number}</Text>
+                        <Text style={ticketStyles.popText}>Thông tin vé: {adultTicket} vé người lớn + {childTicket} vé học sinh /
                          sinh viên / người cao tuổi, ngày {formatDate(date)}</Text>
+                        <Text style={ticketStyles.popText}>Thành tiền: </Text>
+                        <Text style={ticketStyles.strong}>{price * adultTicket + price * childTicket / 2} VND</Text>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button title="Xác nhận" onPress={() => toggleModal('confirm')} />
+                        <Button title="Xác nhận" onPress={() => navigation.navigate('SuccessTicket')} />
                     </Modal.Footer>
                 </Modal.Container>
             </Modal>

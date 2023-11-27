@@ -7,7 +7,8 @@ import InfoScreen from "../screens/InfoScreen";
 import MapScreen from "../screens/MapScreen";
 import EventScreen from "../screens/EventScreen";
 import SettingScreen from "../screens/SettingScreen";
-import TicketScreen from "../screens/TicketScreen";
+import TicketScreen from "../screens/ticket/TicketScreen";
+import SuccessScreen from "../screens/ticket/SuccessScreen";
 import EventDetails from "../screens/EventDetails";
 import InfoUserScreen from "../screens/menu/InfoUser";
 import SupportScreen from "../screens/menu/Support";
@@ -33,6 +34,7 @@ function AppNavigation() {
         <Stack.Screen name="Event" component={EventScreen} />
         <Stack.Screen name="Setting" component={SettingScreen} />
         <Stack.Screen name="Ticket" component={TicketScreen} />
+        <Stack.Screen name="SuccessTicket" component={SuccessScreen} />
         <Stack.Screen name="EventDetails" component={EventDetails} />
         <Stack.Screen name="InfoUser" component={InfoUserScreen} />
         <Stack.Screen name="Support" component={SupportScreen} />

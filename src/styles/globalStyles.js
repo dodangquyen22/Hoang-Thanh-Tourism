@@ -183,4 +183,13 @@ export const ticketStyles = StyleSheet.create({
         paddingTop: 10,
         margin: Dimensions.get('window').width * 0.38,
     },
+    strong: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 20,
+        marginTop: -20,
+    },
+    popText: {
+        margin: 10,
+    }
 })
