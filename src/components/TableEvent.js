@@ -20,28 +20,40 @@ const NotificationScreen = () => {
   const eventData = [
     {
       id: 1,
-      image: require('../../assets/images/beach.png'),
-      title: 'Thông báo 1',
+      image: require('../../assets/images/trienlamcoloa.jpg'),
+      title: 'Triển lãm "Thành Cổ Loa"',
     },
     {
       id: 2,
-      image: require('../../assets/images/beach.png'),
-      title: 'Thông báo 2',
+      image: require('../../assets/images/thanhphoxuacu.jpg'),
+      title: 'Thành phố xưa cũ',
     }, 
     {
         id: 3,
-        image: require('../../assets/images/beach.png'),
-        title: 'Thông báo 3',
+        image: require('../../assets/images/khaimac.jpg'),
+        title: 'Khai mạc ngày hội di sản',
       },
       {
         id: 4,
-        image: require('../../assets/images/beach.png'),
-        title: 'Thông báo 4',
+        image: require('../../assets/images/trungthu.jpg'),
+        title: 'Đêm Trung thu',
       },
       {
         id: 5,
-        image: require('../../assets/images/beach.png'),
-        title: 'Thông báo 5',
+        image: require('../../assets/images/tetdoanngo.jpg'),
+        title: 'Tết Đoan ngọ Thăng Long xưa',
+      }, {
+        id: 6,
+        image: require('../../assets/images/tourdem.jpg'),
+        title: 'Tour Đêm giải mã Hoàng Thành',
+      }, {
+        id: 7,
+        image: require('../../assets/images/hoatdong.jpg'),
+        title: 'Lễ kí kết hợp đồng phát triển',
+      }, {
+        id: 8,
+        image: require('../../assets/images/trungbay.jpg'),
+        title: 'Tôn vinh di sản văn hóa',
       },
     // Thêm các sự kiện khác vào đây
   ];
@@ -86,6 +98,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   }, flatList: {
     height: Dimensions.get('window').height * 0.4,
+    marginBottom: 80,
   },
 });
 

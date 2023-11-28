@@ -21,15 +21,8 @@ export default function EventScreen() {
         <View style={styles.container}>
             <View style={styles.title}>
                 <Text style={styles.titleText}>Sự kiện</Text>
-                <TouchableOpacity style={styles.titleIcon} onPress={toggleView}>
-                    <MaterialCommunityIcons name={iconTable ? 'table-of-contents' : 'dots-grid'} color={"black"} size={40}>
-                    </MaterialCommunityIcons>
-                </TouchableOpacity>
             </View>
-            {/* <GridEvent />
-
-            <Notification /> */}
-            {showGrid ? <Notification /> : <GridEvent />}
+            <Notification />
             <BottomButtonBar /> 
         </View>
     )
