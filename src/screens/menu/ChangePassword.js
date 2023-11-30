@@ -2,10 +2,12 @@ import { de } from 'date-fns/locale';
 import React, { useState } from 'react';
 import BottomButtonBar from '../../components/NavigatorBottomBar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from "@react-navigation/native";
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Dimensions, Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 
 export default function ChangePasswordScreen() {
+    const navigation = useNavigation();
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
