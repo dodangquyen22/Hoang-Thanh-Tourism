@@ -1,3 +1,4 @@
+import { black } from "color-name";
 import { StyleSheet, Dimensions } from "react-native";
 
 export const globalStyles = StyleSheet.create({
@@ -6,6 +7,7 @@ export const globalStyles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
+        backgroundColor:'white'
     },
     text: {
         color: "black",

@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         position: 'relative',
     },
+    
     boxContent: {
         // position: 'absolute',
         top: 20

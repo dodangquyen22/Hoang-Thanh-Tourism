@@ -1,5 +1,5 @@
-import { SliderBox, ImageSlider } from 'react-native-image-slider-box';
-import { View } from 'react-native';
+import { SliderBox } from 'react-native-image-slider-box';
+import { View, StyleSheet } from 'react-native';
 
 const SlideImage = () => {
     const images = {
@@ -14,10 +14,27 @@ const SlideImage = () => {
     }
 
     return (
-        <View>
-            <SliderBox images={Object.values(images)}/>
+        <View style={styles.container}>
+            <SliderBox
+                style={styles.sliderBox}
+                images={Object.values(images)}
+            />
         </View>
-    )
-}
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    sliderBox: {
+        width: 400,
+        height: 200,
+        left: 8,
+        borderRadius: 16, // Adjust the border radius as needed
+    },
+});
 
 export default SlideImage;

@@ -28,7 +28,7 @@ export default function Categories() {
             destinationData.map((cat,index)=>{
                 return (
                     <TouchableOpacity onPress={() => handlePress('Destination', {...cat})}  key={index} className="flex items-center space-y-2">
-                        <Image source={cat.image} className="rounded-3xl" style={{width: wp(27), height: wp(19)}} />
+                        <Image source={cat.image} className="rounded-3xl" style={{width: wp(50), height: wp(50)}} />
                         <Text className="text-neutral-700 font-medium" style={{fontSize: wp(3.2)}}>{cat.title}</Text>
                     </TouchableOpacity>
                 )

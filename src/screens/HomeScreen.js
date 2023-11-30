@@ -1,8 +1,10 @@
 import * as React from "react";
-import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, SafeAreaView, Keyboard, TouchableWithoutFeedback, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, Button, StyleSheet, Image, Dimensions, SafeAreaView, Keyboard, TouchableWithoutFeedback, ScrollView, TextInput } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
+import { MagnifyingGlassIcon } from 'react-native-heroicons/outline'
 import SearchBar from "../components/Search";
 import SlideImage from "../components/SlideImage";
 import Categories from "../components/categories";
@@ -16,11 +18,26 @@ export default function HomeScreen() {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <SafeAreaView style={globalStyles.container}>
-
-
+                <ScrollView style = {styles.scrollViewContent} showsVerticalScrollIndicator={false}>
                 <View style={styles.imageField}>
-                    <SearchBar></SearchBar>
-                    <View style={{top:20}}>
+                    
+                    <View className="mx-5 flex-row justify-between items-center mb-10" style={{marginBottom: 10}}>
+                        <Text style={{fontSize: wp(7)}} className="font-bold text-neutral-700">Xin chào qdd</Text>
+                        <TouchableOpacity>
+                            <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
+                        </TouchableOpacity>
+                    </View> 
+                    <View className="mx-5 mb-4">
+                        <View className="flex-row items-center bg-neutral-100 rounded-full p-4 space-x-2 pl-6">
+                            <MagnifyingGlassIcon size={20} strokeWidth={3} color="gray" />
+                            <TextInput
+                            placeholder='Tìm kiếm địa danh'
+                            placeholderTextColor={'gray'}
+                            className="flex-1 text-base mb-1 pl-1 tracking-wider"
+                            />
+                        </View>
+                    </View>                       
+                    <View>
                         <SlideImage></SlideImage>
                     </View>
                 </View>
@@ -50,10 +67,9 @@ export default function HomeScreen() {
                         </View>
                     </View>
                 </View>
-
-
+                
+                </ScrollView>
                 <BottomButtonBar />
-
             </SafeAreaView>
         </TouchableWithoutFeedback>
 
@@ -61,24 +77,29 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+    scrollViewContent: {
+        flex: 1,
+      },
     imageField: {
         top: 10,
-        left: 0,
-        right: 0,
-        position: 'absolute',
+        // left: 0,
+        // right: 0,
+        // position: 'absolute',
         shadowColor: '#202020',
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 5,
-        backgroundColor: ''
+        backgroundColor: 'white',
+        marginBottom: 10,
     },
     imageHome: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height * 0.35,
     },
     content: {
-        position: 'absolute',
-        top: Dimensions.get('window').height * 0.48,
-        left: 0,
+        //position: 'absolute',
+        // top: Dimensions.get('window').height * 0.48,
+        marginTop: 20,
+        paddingBottom: 100,
     },
     titleText: {
         fontSize: 30,
