@@ -43,13 +43,13 @@ export default function DestinationScreen(props) {
                     </Text>
                 </View>
                 <Text style={{fontSize: wp(3.7)}} className="text-neutral-700 tracking-wide mb-2">{item?.longDescription}</Text>
-                <View className="flex-row justify-between mx-1">
+                {/* <View className="flex-row justify-between mx-1">
                     <View>
                         <Text>
                             {item?.longDescription}
                         </Text>
                     </View>
-                </View>
+                </View> */}
             </ScrollView>
         </View>
     </View>
