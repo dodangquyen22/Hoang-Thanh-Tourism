@@ -1,0 +1,52 @@
+{
+  "rootCoordinate": {
+    "latitude": 21.0352,
+    "longitude": 105.84024
+  },
+  "citadelRegion": [
+    {
+      "latitude": 21.03156,
+      "longitude": 105.8403
+    },
+    {
+      "latitude": 21.04057,
+      "longitude": 105.84190
+    },
+    {
+      "latitude": 21.04088,
+      "longitude": 105.8402
+    },
+    {
+      "latitude": 21.03839,
+      "longitude": 105.83985
+    },
+    {
+      "latitude": 21.0388,
+      "longitude": 105.83705
+    },
+    {
+      "latitude": 21.03628,
+      "longitude": 105.83652
+    },
+    {
+      "latitude": 21.03594,
+      "longitude": 105.83833
+    },
+    {
+      "latitude": 21.03575,
+      "longitude": 105.83843
+    },
+    {
+      "latitude": 21.035623,
+      "longitude": 105.83942
+    },
+    {
+      "latitude": 21.03324,
+      "longitude": 105.83907
+    },
+    {
+      "latitude": 21.03284,
+      "longitude": 105.83899
+    }
+  ]
+}
