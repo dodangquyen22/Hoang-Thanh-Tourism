@@ -1,40 +1,11 @@
-export const sortCategoryData = ['All', 'Popular', 'Recommended', 'More'];
+// const RNFS = require('react-native-fs')
+// const file1Path = RNFS.DocumentDirectoryPath + './data/cotco.txt';
+// const data1 = await RNFS.readFile(file1Path, 'utf8');
 
-export const categoriesData = [
-    {
-        title: 'Ocean',
-        image: require('../../assets/images/ocean.png')
-    },
-    {
-        title: 'Mountain',
-        image: require('../../assets/images/mountain.png')
-    },
-    {
-        title: 'Camp',
-        image: require('../../assets/images/camp.png')
-    },
-    {
-        title: 'Sunset',
-        image: require('../../assets/images/sunset.png')
-    },
-    {
-        title: 'Hiking',
-        image: require('../../assets/images/hiking.png')
-    },
-    {
-        title: 'Beach',
-        image: require('../../assets/images/beach.png')
-    },
-    {
-        title: 'Forest',
-        image: require('../../assets/images/forest.png')
-    },
-    
-]
 export const destinationData = [
     {
         title: 'Cột cờ',
-        longDescription: "Kỳ đài “Cột cờ Hà Nội” nằm trên đường Điện Biên Phủ, thuộc quận Ba Đình, Hà Nội, được xây dựng năm 1812, dưới thời Vua Gia Long triều Nguyễn trên phần đất phía nam của Hoàng thành Thăng Long, nơi xây tòa thành Tam Môn của Hoàng thành Thăng Long thời Lê. Đây là điểm chuẩn, đánh dấu sự khởi nguyên ở đầu phía nam trục chính tâm của tòa thành, từ đây theo đường “ngư đạo”, qua Đoan Môn rồi tới điểm quan trọng nhất, điểm trung tâm của Hoàng thành là điện Kính Thiên. ",
+        longDescription: "Đoạn văn bị dài ném vào nhìn nó xấu, đọc file vào nhưng dang bị lỗi",
         image: require('../../assets/images/Cotco1.png')
     },
     {
