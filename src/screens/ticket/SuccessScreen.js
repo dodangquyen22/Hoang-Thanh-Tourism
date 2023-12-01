@@ -37,10 +37,10 @@ export default function SuccessScreen() {
 
                     <View style={styles.footer}>
                         <View style={styles.rowButton}>
-                            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+                            <TouchableOpacity style={styles.button} onPress={() => handlePress('Home')}>
                                 <Text style={styles.textButton}>Về trang chủ</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Ticket')}>
+                            <TouchableOpacity style={styles.button} onPress={() => handlePress('Ticket')}>
                                 <Text style={styles.textButton}>Tạo giao dịch khác</Text>
                             </TouchableOpacity>
                         </View>

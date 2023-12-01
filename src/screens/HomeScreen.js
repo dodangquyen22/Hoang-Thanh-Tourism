@@ -36,7 +36,7 @@ export default function HomeScreen() {
                             className="flex-1 text-base mb-1 pl-1 tracking-wider"
                             />
                         </View>
-                    </View>                       
+                    </View>
                     <View>
                         <SlideImage></SlideImage>
                     </View>
@@ -49,19 +49,19 @@ export default function HomeScreen() {
                             <TouchableOpacity onPress={() => handlePress('Ticket')}>
                             <View style={styles.imageContainer}>
                                 <Image
-                                    source={require("../../assets/images/tickets.png")}
+                                    source={require("../../assets/images/ticket-icon.png")}
                                     style={styles.image}
                                 />
                                 <Text style={styles.text}>Mua vé</Text>
                             </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => handlePress('Tour')}>
                             <View style={styles.imageContainer}>
                                 <Image
-                                    source={require("../../assets/images/tickets.png")}
+                                    source={require("../../assets/images/icon-tour.png")}
                                     style={styles.image}
                                 />
-                                <Text style={styles.text}>Đặt tour</Text>
+                                <Text style={styles.text}>Tour</Text>
                             </View>
                             </TouchableOpacity>
                         </View>

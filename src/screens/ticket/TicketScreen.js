@@ -116,7 +116,7 @@ export default function TicketScreen() {
                     value={number}
                     keyboardType="numeric"/>
                 <Text style={ticketStyles.label}>Ngày tham quan:</Text>
-                <TouchableOpacity style={ticketStyles.inputContainer} onPress={() => showDatepicker}>
+                <TouchableOpacity style={ticketStyles.inputContainer} onPress={() => showDatepicker()}>
                     <Text style={ticketStyles.inputDate}>{formatDate(date)}</Text>
                     <FontAwesome style={ticketStyles.calendar} name="calendar" size={20}></FontAwesome>
                 </TouchableOpacity>
@@ -172,7 +172,7 @@ export default function TicketScreen() {
                         <Text style={ticketStyles.strong}>{price * adultTicket + price * childTicket / 2} VND</Text>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button title="Xác nhận" onPress={() => navigation.navigate('SuccessTicket')} />
+                        <Button title="Xác nhận" onPress={() => handlePress('SuccessTicket')} />
                     </Modal.Footer>
                 </Modal.Container>
             </Modal>
