@@ -3,10 +3,12 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
-import MapView, { Marker, Polygon } from 'react-native-maps';
+import NumberMarker from "../components/Marker";
+import MapView, { Marker, Polygon, Polyline } from 'react-native-maps';
 import * as Location from 'expo-location'
 import { Button } from "react-native-elements";
 import mapData from "../../data/mapData.json";
+import mapStyle from "../../data/mapStyle.json";
 
 export default function MapScreen() {
     const navigation = useNavigation();
@@ -14,33 +16,24 @@ export default function MapScreen() {
         ...mapData.rootCoordinate,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
-
     });
     const [markLocation, setMarkLocation] = React.useState(mapData.rootCoordinate);
+    const lastRegion = React.useRef(mapRegion);
 
-    // const location = async () => {
-    //     // let { status } = await Location.requestForegroundPermissionsAsync();
-    //     // if (status !== 'granted') {
-    //     //     setErrorMsg('Permission to access location was denied');
-    //     // }
-    //     // let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
-    //     setMapRegion({
-    //         latitude: 21.035362,
-    //         longitude: 105.840191,
-    //         latitudeDelta: 0.01,
-    //         longitudeDelta: 0.01,
-    //     })
-    // }
-
-    // React.useEffect(() => {
-    //     location();
-    // }, [])
     return (
         <View style={styles.container}>
             <View style={styles.mapField}>
                 <MapView style={styles.map}
-                  // initialRegion={mapRegion}
-                  region={mapRegion}>
+                  customMapStyle={mapStyle}
+                  initialRegion={mapRegion}
+                  // region={mapRegion}
+                  onRegionChange={(region) => {
+                      lastRegion.current = region;
+                      setTimeout(() => {
+                        if (lastRegion.current == region)
+                          setMapRegion(region)
+                      }, 100);
+                  }}>
                     <Marker draggable
                       coordinate={mapData.rootCoordinate}
                       title="Hoàng Thành Thăng Long"
@@ -53,11 +46,37 @@ export default function MapScreen() {
                     <Polygon 
                       coordinates={mapData.citadelRegion}
                       strokeWidth={2}
-                      strokeColor="orange"
-                      fillColor="rgba(255,254,172,0.6)">
+                      strokeColor="orange">
                     </Polygon>
+                    {
+                    mapData.campuses.map((campus, index) => <Polygon
+                        key={index}
+                        coordinates={campus}
+                        strokeWidth={0.5}
+                        strokeColor="grey"
+                        fillColor="rgba(255,254,220,0.5)">
+                      </Polygon>)
+                    }
+                    {
+                    mapData.roads.map((road, index) => <Polyline
+                        key={index}
+                        coordinates={road.map(index => mapData.roadIntersections[index])}
+                        strokeWidth={0.04 / lastRegion.current.latitudeDelta}
+                        strokeColor="white"
+                      ></Polyline>)
+                    }
+                    {
+                    mapData.markers.map((marker, index) => <Marker
+                        key={marker.id}
+                        coordinate={marker.coord}
+                        title={marker.title}
+                      >
+                        <NumberMarker number={index + 1} /> 
+                      </Marker>)
+                    }
                 </MapView>
-                <Text style={styles.text}>Lat:{markLocation.latitude}, Lng:{markLocation.longitude}</Text>
+                <Text style={styles.text}>Lat:{markLocation.latitude}, Lng:{markLocation.longitude}
+                region:{JSON.stringify(lastRegion.current)}</Text>
             </View>
             <BottomButtonBar />
         </View>
