@@ -36,7 +36,7 @@ export default function HomeScreen() {
                             className="flex-1 text-base mb-1 pl-1 tracking-wider"
                             />
                         </View>
-                    </View>                       
+                    </View>
                     <View>
                         <SlideImage></SlideImage>
                     </View>
@@ -49,19 +49,19 @@ export default function HomeScreen() {
                             <TouchableOpacity onPress={() => handlePress('Ticket')}>
                             <View style={styles.imageContainer}>
                                 <Image
-                                    source={require("../../assets/images/tickets.png")}
+                                    source={require("../../assets/images/ticket-icon.jpg")}
                                     style={styles.image}
                                 />
                                 <Text style={styles.text}>Mua vé</Text>
                             </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => handlePress('Tour')}>
                             <View style={styles.imageContainer}>
                                 <Image
-                                    source={require("../../assets/images/tickets.png")}
+                                    source={require("../../assets/images/icon-tour.png")}
                                     style={styles.image}
                                 />
-                                <Text style={styles.text}>Đặt tour</Text>
+                                <Text style={styles.text}>Tour</Text>
                             </View>
                             </TouchableOpacity>
                         </View>
@@ -117,7 +117,8 @@ const styles = StyleSheet.create({
 
     service: {
         flexDirection: 'row',
-        width: Dimensions.get('window').width * 0.6,
+        justifyContent: 'space-between',
+        width: Dimensions.get('window').width * 0.8,
     },
     btnHome: {
         flex: 1,
@@ -144,14 +145,18 @@ const styles = StyleSheet.create({
     imageContainer: {
         flexDirection: "column",
         alignItems: "center",
-        marginLeft: 30
+        marginLeft: '30%',
       },
       image: {
-        width: 50, // Điều chỉnh chiều rộng của hình ảnh theo ý muốn
-        height: 50, // Điều chỉnh chiều cao của hình ảnh theo ý muốn
+//        shadowColor: 'black',
+//        borderWidth: 1,
+//        borderRadius: 20,
+//        borderColor: 'black',
+        width: Dimensions.get('window').width * 0.18, // Điều chỉnh chiều rộng của hình ảnh theo ý muốn
+        height: Dimensions.get('window').width * 0.18, // Điều chỉnh chiều cao của hình ảnh theo ý muốn
       },
       text: {
-        marginTop: 5, // Điều chỉnh khoảng cách giữa hình ảnh và văn bản theo ý muốn
+        marginTop: '2%', // Điều chỉnh khoảng cách giữa hình ảnh và văn bản theo ý muốn
       },
 });
 

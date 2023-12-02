@@ -18,6 +18,9 @@ const SlideImage = () => {
             <SliderBox
                 style={styles.sliderBox}
                 images={Object.values(images)}
+                autoplay
+                circleLoop
+                autoplayInterval={4000}
             />
         </View>
     );
