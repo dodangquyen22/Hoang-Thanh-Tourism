@@ -39,7 +39,7 @@ export default function SuccessScreen() {
                         />
                         <View>
                             <Text style={styles.titleButton}>Tour đêm Hoàng Thành Thăng Long          </Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => handlePress('TourDetail')}>
                                 <Text style={styles.textButton}>Xem thêm</Text>
                             </TouchableOpacity>
                         </View>
