@@ -41,22 +41,68 @@ export default function TourDetail() {
                     autoplayInterval={4000}
                 />
                 <ScrollView>
-                    <Text>
-                        Thời gian khởi hành tour: 19h ngày thứ Sáu, Thứ Bảy hàng tuần. Chương trình tour kéo dài khoảng 1,5 giờ. Các bạn lưu ý đến trước giờ khởi hành 15 phút, tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu.
+                    <View style={{marginTop: '5%'}}>
+                        <View>
+                            <Text>
+                            <Text style={{fontWeight:'bold', flexWrap: 'wrap'}}>Thời gian khởi hành tour:</Text>
+                            19h ngày thứ Sáu, Thứ Bảy hàng tuần.
+                            </Text>
+                            <Text>Chương trình tour kéo dài khoảng 1,5 giờ.
+                            Các bạn lưu ý đến trước giờ khởi hành 15 phút, tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu.
+                            </Text>
+                        </View>
+                        <View>
+                            <Text style={{marginTop:'5%'}}>
+                                <Text style={{fontWeight:'bold'}}>Giá tour:</Text> 300k/người lớn.Trẻ em dưới 12 tuổi giảm 50%. Trẻ em dưới 5 tuổi miễn phí.
+                            </Text>
+                        </View>
+                        <View>
+                            <Text style={{marginTop:'5%'}}>
+                                <Text style={{fontWeight:'bold'}}>Liên hệ đặt tour:</Text>
+                                 0913012021/ 0902115698
+                            </Text>
+                        </View>
+                        <View>
+                            <Text style={{fontWeight:'bold', marginTop:'5%'}}>Lộ trình tham quan:</Text>
+                            <Text>- Đón khách tại cổng Hoàng thành 19c Hoàng Diệu</Text>
+                            <Text>- Chụp ảnh check in tại Đoan Môn </Text>
+                            <Text>- Xem biểu diễn nghệ thuật trên sàn kính khảo cổ Đoan Môn</Text>
+                            <Text>- Tham quan phòng trưng bày hiện vật</Text>
+                            <Text>- Dâng hương tưởng nhớ các bậc tiên đế tại Điện Kính Thiên</Text>
+                            <Text>- Tham quan các dấu tích khảo cổ tại 18 Hoàng Diệu</Text>
+                            <Text>- Trải nghiệm nước giếng hoàng cung</Text>
+                            <Text>- Giải mã hiện vật bằng ánh sáng laze</Text>
+                            <Text>- Thư giãn, thưởng thức trà sen, mứt sen cung đình dưới bóng cây bồ đề</Text>
+                        </View>
+                        <View>
+                            <Text style={{fontWeight:'bold', marginTop:'5%'}}>Những điểm đặc biệt của tour mà bạn không nên bỏ lỡ:</Text>
+                            <Text>
+                                Trải nghiệm khu di sản văn hóa thế giới Hoàng thành Thăng Long trong không gian lung linh ban đêm.
+                                Chụp ảnh cùng các cung nữ, lính canh trong trang phục cổ xưa.
+                                Thưởng thức nghệ thuật tại một sân khấu độc đáo, ngay trên các dấu tích khảo cổ nghìn năm.
+                                Tham dự Lễ dâng hương tưởng nhớ các bậc tiên đế tại điện Kính Thiên, trung tâm của trời đất, trung tâm của kinh thành Thăng Long xưa.
+                                Tham quan khu khảo cổ với các dấu tích cung điện vàng son một thuở, những hiện vật nghìn năm từ lòng đất.
+                                Tự tay lấy cho mình những dòng nước mát từ giếng Vua, nguồn nước biểu tượng cho nguồn sống dồi dào và sự may mắn, phúc lành.
+                                Tham gia trò chơi Giải mã Hoàng thành Thăng Long bằng thẻ giải mã với màn trình diễn laze bật mí ấn tượng và những phần quà ý nghĩa.
+                                Cảm giác thật thư thái khi được ngồi thưởng thức trà sen, mứt sen ngay dưới tán cây bồ đề cổ thụ, biểu tượng cho sự an lành, may mắn.
+                            </Text>
 
-                        Giá tour: 300k/người lớn.Trẻ em dưới 12 tuổi giảm 50%. Trẻ em dưới 5 tuổi miễn phí.
-
-                        Liên hệ đặt tour: 0913012021/ 0902115698
-
-                        Lộ trình tham quan: Đón khách tại cổng Hoàng thành 19c Hoàng Diệu – Chụp ảnh check in tại Đoan Môn – Xem biểu diễn nghệ thuật trên sàn kính khảo cổ Đoan Môn –  Tham quan phòng trưng bày hiện vật –  Dâng hương tưởng nhớ các bậc tiên đế tại Điện Kính Thiên – Tham quan các dấu tích khảo cổ tại 18 Hoàng Diệu – Trải nghiệm nước giếng hoàng cung – Giải mã hiện vật bằng ánh sáng laze – Thư giãn, thưởng thức trà sen, mứt sen cung đình dưới bóng cây bồ đề.
-
-                        Những điểm đặc biệt của tour mà bạn không nên bỏ lỡ:....
-
-                    </Text>
-
+                        </View>
+                        <View>
+                            <Text style={{fontWeight:'bold', marginTop:'5%'}}>Những lưu ý nhỏ khi bạn tham gia tour:</Text>
+                            <Text>
+                                Trang phục lịch sự, quần áo, giày dép thoải mái thuận tiện cho việc đi bộ nhiều.
+                                Chương trình khởi hành đúng giờ, các bạn vui lòng có mặt trước 15 phút tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu (riêng cổng vào phải chú ý nhé vì khu di sản có nhiều cổng, dễ nhầm đấy).
+                                Khu di sản rất rộng, các hoạt động liên tục diễn ra nên các bạn cố gắng bám sát, đi theo hướng dẫn viên của đoàn mình, cẩn thận không dễ bị “củ lạc”.
+                                Hoạt động diễn ra ngoài trời, bạn nên mang thêm ô để phòng thời tiết mưa gió thất thường.
+                                Chúc các bạn có một trải nghiệm thú vị với tour đêm Giải mã Hoàng thành Thăng Long!
+                            </Text>
+                        </View>
+                    </View>
+                </ScrollView>
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity style={ticketStyles.icon} onPress={() => navigation.goBack()}>
-                            <Entypo name="arrow-long-left" size={40}>
+                            <Entypo name="arrow-long-left" size={50}>
                             </Entypo>
                         </TouchableOpacity>
 
@@ -65,13 +111,10 @@ export default function TourDetail() {
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.icon} onPress={() => navigation.goBack()}>
-                            <Entypo name="arrow-long-right" size={40}>
+                            <Entypo name="arrow-long-right" size={50}>
                             </Entypo>
                         </TouchableOpacity>
                     </View>
-
-                </ScrollView>
-
             </View>
 
             <BottomButtonBar />
