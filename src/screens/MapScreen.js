@@ -35,15 +35,6 @@ export default function MapScreen() {
                           setMapRegion(region)
                       }, 100);
                   }}>
-                    <Marker draggable
-                      coordinate={mapData.rootCoordinate}
-                      title="Hoàng Thành Thăng Long"
-                      description="Hà Nội, Việt Nam"
-                      onDragEnd={(e) => {
-                        const { latitude, longitude } = e.nativeEvent.coordinate;
-                        setMarkLocation({ latitude, longitude })
-                      }}>
-                    </Marker>
                     <Polygon 
                       coordinates={mapData.citadelRegion}
                       strokeWidth={2}
@@ -75,8 +66,6 @@ export default function MapScreen() {
                       </Polygon>)
                     }
                 </MapView>
-                <Text style={styles.text}>Lat:{markLocation.latitude}, Lng:{markLocation.longitude}
-                region:{JSON.stringify(lastRegion.current)}</Text>
             </View>
             <BottomButtonBar />
         </View>
