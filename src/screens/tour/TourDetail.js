@@ -40,7 +40,7 @@ export default function TourDetail() {
                     circleLoop
                     autoplayInterval={4000}
                 />
-                <ScrollView>
+                <ScrollView style={{marginLeft: '3%', marginRight: '3%'}}>
                     <View style={{marginTop: '5%'}}>
                         <View>
                             <Text>

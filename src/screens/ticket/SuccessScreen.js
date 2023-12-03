@@ -6,11 +6,17 @@ import { useNavigation } from "@react-navigation/native";
 
 import BottomButtonBar from "../../components/NavigatorBottomBar";
 import { ticketStyles } from "../../styles/globalStyles";
+import { info } from "./TicketScreen";
 
 export default function SuccessScreen() {
     const navigation = useNavigation();
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName)
+    };
+
+    const formatDate = (date) => {
+        date = new Date(date);
+        return (`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`);
     };
 
     return (
@@ -28,11 +34,11 @@ export default function SuccessScreen() {
                     </View>
 
                     <View style={styles.body}>
-                        <Text style={styles.textContent}>Họ và tên:</Text>
-                        <Text style={styles.textContent}>Số điện thoại:</Text>
-                        <Text style={styles.textContent}>Ngày tham quan:</Text>
-                        <Text style={styles.textContent}>Số lượng vé:</Text>
-                        <Text style={styles.textContent}>Vui lòng thanh toán xxx VND tại quầy vé</Text>
+                        <Text style={styles.textContent}>Họ và tên: {info.name}</Text>
+                        <Text style={styles.textContent}>Số điện thoại: {info.phone}</Text>
+                        <Text style={styles.textContent}>Ngày tham quan: {formatDate(info.date)}</Text>
+                        <Text style={styles.textContent}>Số lượng vé: {info.adult} vé người lớn + {info.child} vé học sinh / sinh viên / người cao tuổi</Text>
+                        <Text style={styles.textContent}>Vui lòng thanh toán {info.fee} VND tại quầy vé</Text>
                     </View>
 
                     <View style={styles.footer}>
