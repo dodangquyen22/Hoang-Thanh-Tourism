@@ -6,15 +6,38 @@ import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
 import { MagnifyingGlassIcon } from 'react-native-heroicons/outline'
 import SearchBar from "../components/Search";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import SlideImage from "../components/SlideImage";
 import Categories from "../components/categories";
 import { theme } from '../theme';
-import { useState } from 'react';
-export default function HomeScreen() {
-    const navigation = useNavigation();
+import { useState } from "react";
+import { useEffect } from 'react';
+export default function HomeScreen({ navigation }) {
+    const [userData, setUserData] = useState(null);
+    const retrieveUserData = async () => {
+        try {
+          const data = await AsyncStorage.getItem('userData');
+          if (data) {
+            const parsedData = JSON.parse(data);
+            setUserData(parsedData);
+            // console.log(parsedData);
+          } else {
+            setUserData(null);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      useEffect(() => {
+        const reloadListener = setInterval(retrieveUserData, 1000); // Refresh every second
+    
+        return () => clearInterval(reloadListener); // Cleanup: Clear the interval when the component unmounts
+      }, []);
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName)
     }
+    // console.log(userData)
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <SafeAreaView style={globalStyles.container}>
@@ -22,7 +45,7 @@ export default function HomeScreen() {
                 <View style={styles.imageField}>
                     
                     <View className="mx-5 flex-row justify-between items-center mb-10" style={{marginBottom: 10}}>
-                        <Text style={{fontSize: wp(7)}} className="font-bold text-neutral-700">Xin chào qdd</Text>
+                        <Text style={{fontSize: wp(7)}} className="font-bold text-neutral-700">{userData? `Xin chào ${userData}` : 'Xin chào'}</Text>
                         <TouchableOpacity>
                             <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
                         </TouchableOpacity>

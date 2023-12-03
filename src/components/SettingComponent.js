@@ -5,8 +5,50 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Settings = () => {
+
+  const [isLoggedIn, setisLoggedIn] = useState(null);
+  const [error, setError] = useState('');
+  const retrieveUserData = async () => {
+      try {
+        const data = await AsyncStorage.getItem('isLoggedIn');
+        if(data){setisLoggedIn(data)}
+        
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    useEffect(() => {
+      retrieveUserData();
+    }, []);
+
+    const handleLoginLogout = async() => {
+      try {
+        const response = await fetch('http://192.168.99.16:3000/logout', {
+          method: 'POST',
+          headers: 
+              {
+                  'Content-Type': 'application/json',
+              },
+        });
+        if (response.ok) {
+          setisLoggedIn(false)
+          await AsyncStorage.removeItem('isLoggedIn');
+          await AsyncStorage.removeItem('userData');
+          navigation.navigate('Home');
+        } else {
+          // Xử lý lỗi từ máy chủ
+          setError(response.error);
+        }
+      } catch (error) {
+        console.error(error);
+        setError('An error occurred. Please try again.');
+      }
+    };
   const navigation = useNavigation();
   const handlePress = (buttonName) => {
     navigation.navigate(buttonName)
@@ -14,49 +56,60 @@ const Settings = () => {
   return (
     <View style={styles.container}>
       <View style={styles.sidebar}>
-        <TouchableOpacity onPress={() => navigation.navigate("InfoUser")}>
+      <TouchableOpacity onPress={() => navigation.navigate("InfoUser")}>
           <View style={[styles.sidebarItem, styles.sidebarItemLarge]}>
             <AntDesign name="user" size={28} color="black" />
             <Text style={styles.sideBarTextLarge}>Thông tin cá nhân</Text>
           </View>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => navigation.navigate("Rate")}>
-          <View style={[styles.sidebarItem, styles.sidebarItem]}>
-            <MaterialIcons name="star-rate" size={24} color="black" />
-            <Text style={styles.sidebarText}>Đánh giá</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("ChangePassword")}>
-          <View style={[styles.sidebarItem, styles.sidebarItem]}>
-            <MaterialIcons name="edit" size={24} color="black" />
-            <Text style={styles.sidebarText}>Đổi mật khẩu</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Support")}>
-          <View style={[styles.sidebarItem, styles.sidebarItem]}>
-            <MaterialIcons name="support-agent" size={24} color="black" />
-            <Text style={styles.sidebarText}>Hỗ trợ</Text>
-          </View>
-        </TouchableOpacity>
-        {/* <TouchableOpacity>
-          <View style={[styles.sidebarItem, styles.sidebarItem]}>
-            <Ionicons name="language-outline" size={24} color="black" />
-            <Text style={styles.sidebarText}>Ngôn ngữ</Text>
-          </View>
-        </TouchableOpacity> */}
-        <TouchableOpacity onPress={() => navigation.navigate("TransactionHistory")}>
-          <View style={[styles.sidebarItem, styles.sidebarItem]}>
-            <MaterialCommunityIcons name="history" size={24} color="black" />
-            <Text style={styles.sidebarText}>Lịch sử giao dịch</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={[styles.sidebarItem, styles.sidebarItem]}>
-            <MaterialCommunityIcons name="logout" size={24} color="black" />
-            <Text style={styles.sidebarText}>Đăng xuất</Text>
-          </View>
-        </TouchableOpacity>
+        {isLoggedIn ? (
+          <>
+          <TouchableOpacity onPress={() => navigation.navigate("Rate")}>
+              <View style={[styles.sidebarItem, styles.sidebarItem]}>
+                <MaterialIcons name="star-rate" size={24} color="black" />
+                <Text style={styles.sidebarText}>Đánh giá</Text>
+              </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("ChangePassword")}>
+             <View style={[styles.sidebarItem, styles.sidebarItem]}>
+               <MaterialIcons name="edit" size={24} color="black" />
+               <Text style={styles.sidebarText}>Đổi mật khẩu</Text>
+             </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Support")}>
+            <View style={[styles.sidebarItem, styles.sidebarItem]}>
+              <MaterialIcons name="support-agent" size={24} color="black" />
+              <Text style={styles.sidebarText}>Hỗ trợ</Text>
+            </View>
+          </TouchableOpacity>
+    {/* <TouchableOpacity>
+      <View style={[styles.sidebarItem, styles.sidebarItem]}>
+        <Ionicons name="language-outline" size={24} color="black" />
+        <Text style={styles.sidebarText}>Ngôn ngữ</Text>
+      </View>
+    </TouchableOpacity> */}
+    <TouchableOpacity onPress={() => navigation.navigate("TransactionHistory")}>
+      <View style={[styles.sidebarItem, styles.sidebarItem]}>
+        <MaterialCommunityIcons name="history" size={24} color="black" />
+        <Text style={styles.sidebarText}>Lịch sử giao dịch</Text>
+      </View>
+    </TouchableOpacity>
+            <TouchableOpacity onPress={handleLoginLogout}>
+              <View style={[styles.sidebarItem, styles.sidebarItem]}>
+                <MaterialCommunityIcons name="logout" size={24} color="black" />
+                <Text style={styles.sidebarText}>Đăng Xuất</Text>
+              </View>
+            </TouchableOpacity>
+          </>
+        ) : (
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+            {/* Mục hiển thị khi chưa đăng nhập */}
+            <View style={[styles.sidebarItem, styles.sidebarItem]}>
+              <MaterialCommunityIcons name="login" size={24} color="black" />
+              <Text style={styles.sidebarText}>Đăng Nhập</Text>
+            </View>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
