@@ -8,7 +8,7 @@ type ModalProps = {
     [x: string]: any;
 };
 
-export const Modal = ({
+export const PopUp = ({
     isVisible = false,
     children,
     ...props
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
 });
 
-Modal.Header = ModalHeader;
-Modal.Container = ModalContainer;
-Modal.Body = ModalBody;
-Modal.Footer = ModalFooter;
+PopUp.Header = ModalHeader;
+PopUp.Container = ModalContainer;
+PopUp.Body = ModalBody;
+PopUp.Footer = ModalFooter;
