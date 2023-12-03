@@ -1,11 +1,14 @@
 import { StyleSheet } from "react-native";
 import { View, Text } from "react-native";
+import { Marker } from "react-native-maps";
 
-function NumberMarker({number}) {
+function NumberMarker({ number, ...props}) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{number}</Text>
-    </View>
+    <Marker anchor={{x: 0.5, y: 0.5}} {...props}> 
+      <View style={styles.container}>
+        <Text style={styles.text}>{number}</Text>
+      </View>
+    </Marker>
   );
 }
 
@@ -25,6 +28,6 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 14,
   }
 })

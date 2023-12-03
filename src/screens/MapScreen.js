@@ -4,7 +4,8 @@ import { globalStyles } from "../styles/globalStyles";
 import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
 import NumberMarker from "../components/Marker";
-import MapView, { Marker, Polygon, Polyline } from 'react-native-maps';
+import Landmark from "../components/Landmark";
+import MapView, { Marker, Polygon, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
 import * as Location from 'expo-location'
 import { Button } from "react-native-elements";
 import mapData from "../../data/mapData.json";
@@ -19,7 +20,7 @@ export default function MapScreen() {
     });
     const [markLocation, setMarkLocation] = React.useState(mapData.rootCoordinate);
     const lastRegion = React.useRef(mapRegion);
-
+    let landmarkNumGen = 0;
     return (
         <View style={styles.container}>
             <View style={styles.mapField}>
@@ -49,30 +50,29 @@ export default function MapScreen() {
                       strokeColor="orange">
                     </Polygon>
                     {
-                    mapData.campuses.map((campus, index) => <Polygon
-                        key={index}
-                        coordinates={campus}
-                        strokeWidth={0.5}
-                        strokeColor="grey"
-                        fillColor="rgba(255,254,220,0.5)">
-                      </Polygon>)
-                    }
-                    {
                     mapData.roads.map((road, index) => <Polyline
                         key={index}
-                        coordinates={road.map(index => mapData.roadIntersections[index])}
+                        coordinates={road.map(id => mapData.roadIntersections.find((x) => x.id == id))}
                         strokeWidth={0.04 / lastRegion.current.latitudeDelta}
                         strokeColor="white"
                       ></Polyline>)
                     }
                     {
-                    mapData.markers.map((marker, index) => <Marker
-                        key={marker.id}
-                        coordinate={marker.coord}
-                        title={marker.title}
-                      >
-                        <NumberMarker number={index + 1} /> 
-                      </Marker>)
+                    mapData.landmarks.map((landmark) => 
+                      <Landmark 
+                        key={landmark.id} 
+                        {...landmark} 
+                        number={landmark?.marker?.number || ++landmarkNumGen} />)
+                    }
+                    {
+                    mapData.campuses.map((campus, index) => <Polygon
+                        key={index}
+                        zIndex={-3}
+                        coordinates={campus}
+                        strokeWidth={1}
+                        strokeColor="grey"
+                        fillColor="rgb(240,240,200)">
+                      </Polygon>)
                     }
                 </MapView>
                 <Text style={styles.text}>Lat:{markLocation.latitude}, Lng:{markLocation.longitude}
@@ -105,6 +105,5 @@ const styles = StyleSheet.create({
         color: "black",
         fontSize: 20,
         fontWeight: "bold"
-    },
-    
+    }, 
 });
