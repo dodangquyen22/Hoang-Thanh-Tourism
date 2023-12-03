@@ -12,18 +12,21 @@ import { PopUp } from "../../components/PopUp";
 import { ticketStyles } from "../../styles/globalStyles";
 import {CustomDatePicker} from "../../components/DatePicker";
 
+export const info = {
+    "name": '',
+    "phone": '',
+    "date": '',
+    "adult": '',
+    "child": '',
+    "fee": ''
+};
+
 export default function TicketScreen() {
     const [text, onChangeText] = React.useState();
-    const [number, onChangeNumber] = React.useState();
+    const [phone, onChangePhone] = React.useState();
     const [adultTicket, onChangeAdult] = React.useState(0);
     const [childTicket, onChangeChild] = React.useState(0);
     const price = 30000;
-
-    const navigation = useNavigation();
-    const handlePress = (buttonName) => {
-        navigation.navigate(buttonName);
-        setConfirmVisible(!isConfirmVisible);
-    };
 
     const currentDate = new Date();
     const [date, setDate] = React.useState(new Date());
@@ -32,6 +35,20 @@ export default function TicketScreen() {
 
     const [isConfirmVisible, setConfirmVisible] = React.useState(false);
     const [isHelpVisible, setHelpVisible] = React.useState(false);
+
+    const navigation = useNavigation();
+    const handlePress = (buttonName) => {
+        navigation.navigate(buttonName);
+        setConfirmVisible(!isConfirmVisible);
+        info.name = text;
+        info.phone = phone;
+        info.date = date;
+        info.adult = adultTicket;
+        info.child = childTicket;
+        info.fee = price * adultTicket + price * childTicket / 2;
+    };
+
+
     const toggleModal = (typeOfModal) => {
         if (typeOfModal == 'confirm') {
             setConfirmVisible(!isConfirmVisible);
@@ -116,9 +133,11 @@ export default function TicketScreen() {
                 <Text style={ticketStyles.label}>Số điện thoại:</Text>
                 <TextInput
                     style={ticketStyles.input}
-                    onChangeNumber={onChangeNumber}
-                    value={number}
-                    keyboardType="numeric"/>
+                    onChangeText={onChangePhone}
+                    value={phone}
+                    keyboardType="numeric"
+                    maxLength={10}
+                />
                 <Text style={ticketStyles.label}>Ngày tham quan:</Text>
                 <TouchableOpacity style={ticketStyles.inputContainer} onPress={() => setShow(true)}>
                     <Text style={ticketStyles.inputDate}>{formatDate(date)}</Text>
@@ -184,7 +203,8 @@ export default function TicketScreen() {
                     <PopUp.Header title="Xác nhận thông tin" />
                     <PopUp.Body>
                         <Text style={ticketStyles.popText}>Người đặt vé: {text}</Text>
-                        <Text style={ticketStyles.popText}>Số điện thoại: {number}</Text>
+                        <Text style={ticketStyles.popText}>Số điện thoại: {phone}</Text>
+                        {console.log({phone})}
                         <Text style={ticketStyles.popText}>Thông tin vé: {adultTicket} vé người lớn + {childTicket} vé học sinh /
                          sinh viên / người cao tuổi, ngày {formatDate(date)}</Text>
                         <Text style={ticketStyles.popText}>Thành tiền: </Text>

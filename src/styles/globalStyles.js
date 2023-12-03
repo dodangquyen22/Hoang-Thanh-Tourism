@@ -185,7 +185,7 @@ export const ticketStyles = StyleSheet.create({
         fontWeight: 'bold',
         paddingTop: 10,
         margin: Dimensions.get('window').width * 0.05,
-        marginLeft: Dimensions.get('window').width * 0.35,
+        marginLeft: Dimensions.get('window').width * 0.4,
     },
     buttonContainer: {
         height: Dimensions.get('window').height * 0.18,
