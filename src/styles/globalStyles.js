@@ -116,6 +116,7 @@ export const ticketStyles = StyleSheet.create({
     formContainer: {
         flexDirection: 'column',
         marginTop: 30,
+        height: Dimensions.get('window').height * 0.9,
     },
     input: {
         height: 40,
@@ -183,7 +184,11 @@ export const ticketStyles = StyleSheet.create({
         borderRadius: 8,
         fontWeight: 'bold',
         paddingTop: 10,
-        margin: Dimensions.get('window').width * 0.38,
+        margin: Dimensions.get('window').width * 0.05,
+        marginLeft: Dimensions.get('window').width * 0.4,
+    },
+    buttonContainer: {
+        height: Dimensions.get('window').height * 0.18,
     },
     strong: {
         fontWeight: 'bold',
@@ -193,5 +198,8 @@ export const ticketStyles = StyleSheet.create({
     },
     popText: {
         margin: 10,
+    },
+    datePicker: {
+        position: 'relative',
     }
 })

@@ -38,8 +38,8 @@ export default function SuccessScreen() {
                             source={require('../../../assets/tour-images/tour-dem-0.jpg')}
                         />
                         <View>
-                            <Text style={styles.titleButton}>Tour đêm Hoàng Thành Thăng Long          </Text>
-                            <TouchableOpacity>
+                            <Text style={styles.titleButton}>Tour đêm Hoàng Thành Thăng Long</Text>
+                            <TouchableOpacity onPress={() => handlePress('TourDetail')}>
                                 <Text style={styles.textButton}>Xem thêm</Text>
                             </TouchableOpacity>
                         </View>
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
         marginLeft: '2%',
         marginTop: '3%',
         marginBottom: '2%',
+        width: Dimensions.get('window').width * 0.65,
 //        flexWrap: 'wrap',
     },
     textButton: {

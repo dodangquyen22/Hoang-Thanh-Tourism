@@ -19,6 +19,7 @@ import DestinationScreen from "../screens/DestinationScreen";
 import TourScreen from "../screens/tour/TourScreen.js";
 import LoginScreen from "../screens/Account/Login.js";
 import SignUpScreen from "../screens/Account/SignUp.js";
+import TourDetail from "../screens/tour/TourDetail.js"
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ function AppNavigation() {
         <Stack.Screen name="Ticket" component={TicketScreen} />
         <Stack.Screen name="SuccessTicket" component={SuccessScreen} />
         <Stack.Screen name="Tour" component={TourScreen} />
+        <Stack.Screen name="TourDetail" component={TourDetail} />
         <Stack.Screen name="EventDetails" component={EventDetails} />
         <Stack.Screen name="InfoUser" component={InfoUserScreen} />
         <Stack.Screen name="Support" component={SupportScreen} />

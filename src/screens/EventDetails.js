@@ -1,11 +1,13 @@
 
-import { View, StyleSheet, Text, ScrollView, FlatList, TouchableOpacity, Dimensions } from "react-native";
+import { View, StyleSheet, Text, ScrollView, FlatList, TouchableOpacity, Dimensions, Image } from "react-native";
 import SlideImage from "../components/SlideImage";
+import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
 import { Ionicons } from '@expo/vector-icons';
 
-export default function EventDetails() {
-
+export default function EventDetails({route}) {
+    const navigation = useNavigation();
+    const item = route.params.item;
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -15,12 +17,12 @@ export default function EventDetails() {
                 <Text style={styles.titleHeader}>Thông tin sự kiện</Text>
             </View>
             <ScrollView style={styles.boxContent}>
-                <SlideImage />
-
+                {/* <SlideImage /> */}
+                <Image source={item.image} alt="image" />
                 <ScrollView style={styles.descriptionContainer}>
-                    <Text style={styles.title}>Sự kiện A</Text>
+                    <Text style={styles.title}>{item.title}</Text>
                     <Text style={styles.descriptionText}>
-                        Thông tin sự kiện A
+                        {item.description}
                     </Text>
                 </ScrollView>
             </ScrollView>
@@ -41,11 +43,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: 2,
         borderBottomColor: 'grey',
-        marginBottom: 20,
-        height: Dimensions.get('window').height * 0.08,
+        marginBottom: 10,
+        height: Dimensions.get('window').height * 0.12,
       },
       icon: {
-        marginRight: 10,
+        marginLeft: 10,
       },
       titleHeader: {
         fontSize: 24,
