@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../components/NavigatorBottomBar";
 import { ScrollView, FlatList } from "react-native";
 import SlideImage from "../components/SlideImage";
+import { Padding } from "../styles/globalStyles";
 
 export default function InfoScreen() {
     const navigation = useNavigation();
@@ -22,7 +23,7 @@ export default function InfoScreen() {
                 
                 <ScrollView style={styles.descriptionContainer}>
                     <Text style={styles.title}>Tổng quan</Text>
-                    <Text style={styles.descriptionText}>
+                    <Text numberOfLines={500} style={{flex:1, paddingBottom: 70, fontSize: 18, textAlign:"justify"}}>
                         Hoàng thành Thăng Long (chữ Hán: 昇龍皇城; Hán-Việt: Thăng Long Hoàng thành) là quần thể di tích gắn với lịch sử kinh thành Thăng Long - Đông Kinh và tỉnh thành Hà Nội bắt đầu từ thời kì tiền Thăng Long (An Nam đô hộ phủ thế kỷ VII) qua thời Đinh - Tiền Lê, phát triển mạnh dưới thời Lý, Trần, Lê và thành Hà Nội dưới triều Nguyễn. Đây là công trình kiến trúc đồ sộ, được các triều vua xây dựng trong nhiều giai đoạn lịch sử và trở thành một trong những di tích quan trọng bậc nhất trong hệ thống các di tích Việt Nam.
                         Giai đoạn Tiền Thăng Long
 Thời kỳ Nhà Đường, An Nam được chia thành 12 châu với 50 huyện, Tống Bình là trung tâm của An Nam đô hộ phủ, lần đầu tiên vùng đất sau này là kinh thành Thăng Long nắm giữ vai trò một trung tâm quyền lực chính trị. Năm 866, viên tướng nhà Đường là Cao Biền xây dựng một thành trì mới, Tống Bình được đổi tên thành Đại La – thủ phủ của Tĩnh Hải quân. Theo truyền thuyết, khi đắp thành, Cao Biền thấy một vị thần hiện lên tự xưng là thần Long Đỗ. Vì vậy, sử sách còn gọi Thăng Long là đất Long Đỗ.
