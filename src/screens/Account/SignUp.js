@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity,Image } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity, Image, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const SignUpScreen = ({ navigation }) => {
@@ -17,12 +17,12 @@ const SignUpScreen = ({ navigation }) => {
     }
 
     try {
-      const response = await fetch('http://192.168.99.16:3000/register', {
+      const response = await fetch('http://192.168.1.14:3000/register', {
         method: 'POST',
-        headers: 
-            {
-                'Content-Type': 'application/json',
-            },
+        headers:
+        {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ username, password, phone, email }),
       });
 
@@ -43,37 +43,39 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="chevron-back-circle-outline" size={32}>
-            </Ionicons>
+          <Ionicons name="chevron-back-circle-outline" size={32}>
+          </Ionicons>
         </TouchableOpacity>
-      <Image source={require('../../../assets/logoLogin.png')} style={styles.logo} />
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={text => setUsername(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={text => setPassword(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
-        secureTextEntry
-        value={confirmPassword}
-        onChangeText={text => setConfirmPassword(text)}
-      />
-      <TextInput style={styles.input} placeholder="phone" value={phone} onChangeText={text => setPhone(text)}/>
-      <TextInput style={styles.input} placeholder="email" value={email} onChangeText={text => setEmail(text)}/>
-      {error ? <Text style={styles.error}>{error}</Text> : null}
-      <Button title="Đăng kí" onPress={handleSignUp} />
-    </View>
+        <Image source={require('../../../assets/logoLogin.png')} style={styles.logo} />
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          value={username}
+          onChangeText={text => setUsername(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          onChangeText={text => setPassword(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm Password"
+          secureTextEntry
+          value={confirmPassword}
+          onChangeText={text => setConfirmPassword(text)}
+        />
+        <TextInput style={styles.input} placeholder="phone" value={phone} onChangeText={text => setPhone(text)} />
+        <TextInput style={styles.input} placeholder="email" value={email} onChangeText={text => setEmail(text)} />
+        {error ? <Text style={styles.error}>{error}</Text> : null}
+        <Button title="Đăng kí" onPress={handleSignUp} />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
