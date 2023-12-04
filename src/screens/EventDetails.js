@@ -18,7 +18,7 @@ export default function EventDetails({route}) {
             </View>
             <ScrollView style={styles.boxContent}>
                 {/* <SlideImage /> */}
-                <Image source={item.image} alt="image" />
+                <Image style={styles.image} source={item.image} alt="image" />
                 <ScrollView style={styles.descriptionContainer}>
                     <Text style={styles.title}>{item.title}</Text>
                     <Text style={styles.descriptionText}>
@@ -43,8 +43,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: 2,
         borderBottomColor: 'grey',
-        marginBottom: 10,
-        height: Dimensions.get('window').height * 0.12,
+        height: Dimensions.get('window').height * 0.1,
+      },boxContent: {
+        width: Dimensions.get('window').width * 0.98,
       },
       icon: {
         marginLeft: 10,
@@ -69,5 +70,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center',
         marginBottom: 100
-    },
+    }, image: {
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height * 0.35,
+    }
 })

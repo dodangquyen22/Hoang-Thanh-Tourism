@@ -16,15 +16,22 @@ import { eventData } from '../constants';
 const NotificationScreen = () => {
   const navigation = useNavigation();
   const handlePress = (item) => {
-    navigation.navigate("EventDetails", {item});
+    navigation.navigate("EventDetails", { item });
   };
+  const pressIcon = () => {
+    alert('Đã bật thông báo cho sự kiện này');
+  }
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.eventItem} onPress={() => handlePress(item)}>
-      <Image source={item.image} style={styles.eventImage} />
-      <Text>{item.title}</Text>
-      <MaterialCommunityIcons name="bell-ring" color="orange" size={32} />
-    </TouchableOpacity>
+    <View style={styles.eventItem}>
+      <TouchableOpacity style={styles.box} onPress={() => handlePress(item)}>
+        <Image source={item.image} style={styles.eventImage} />
+        <Text style={styles.title}>{item.title}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={pressIcon}>
+        <MaterialCommunityIcons name="bell-ring" color="orange" size={26} />
+      </TouchableOpacity>
+    </View>
   );
 
   return (
@@ -48,6 +55,13 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 0.98,
     shadowColor: '#000',
     shadowOpacity: 0.1,
+  },box: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 80,
+    width: Dimensions.get('window').width * 0.98,
+  
   },
   eventImage: {
     width: 120,
@@ -60,7 +74,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     borderWidth: 1,
-    borderColor: '#ddd'
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
   },
   eventTitle: {
     flex: 1,
@@ -69,7 +85,12 @@ const styles = StyleSheet.create({
   }, flatList: {
     height: Dimensions.get('window').height * 0.4,
     marginBottom: 80,
-  },
+  },title: {
+    fontSize: 14,
+    marginLeft: 5,
+  }, icon: {
+    textAlign: 'center',
+  }
 });
 
 export default NotificationScreen;
