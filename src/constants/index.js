@@ -181,4 +181,94 @@ export let historySearch = [
     name: 'Liễn Gốm',
     image: require('../../assets/images/liengom.jpg')
   },
-]
+];
+
+export const tourData = [
+    {
+        id: 1,
+        title: 'Tour đêm Hoàng Thành Thăng Long',
+        image: require('../../assets/tour-images/tour-dem-0.jpg'),
+        detail: `    Thời gian khởi hành tour: 19h ngày thứ Sáu, Thứ Bảy hàng tuần.
+    Chương trình tour kéo dài khoảng 1,5 giờ.
+    Các bạn lưu ý đến trước giờ khởi hành 15 phút, tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu.
+
+    Giá tour: 300k/người lớn.Trẻ em dưới 12 tuổi giảm 50%. Trẻ em dưới 5 tuổi miễn phí.
+
+    Liên hệ đặt tour: 0913012021/ 0902115698
+
+    Lộ trình tham quan: Đón khách tại cổng Hoàng thành 19c Hoàng Diệu – Chụp ảnh check in tại Đoan Môn – Xem biểu diễn nghệ thuật trên sàn kính khảo cổ Đoan Môn –  Tham quan phòng trưng bày hiện vật –  Dâng hương tưởng nhớ các bậc tiên đế tại Điện Kính Thiên – Tham quan các dấu tích khảo cổ tại 18 Hoàng Diệu – Trải nghiệm nước giếng hoàng cung – Giải mã hiện vật bằng ánh sáng laze – Thư giãn, thưởng thức trà sen, mứt sen cung đình dưới bóng cây bồ đề.
+
+    Những điểm đặc biệt của tour mà bạn không nên bỏ lỡ:
+         Trải nghiệm khu di sản văn hóa thế giới Hoàng thành Thăng Long trong không gian lung linh ban đêm.
+         Chụp ảnh cùng các cung nữ, lính canh trong trang phục cổ xưa.
+         Thưởng thức nghệ thuật tại một sân khấu độc đáo, ngay trên các dấu tích khảo cổ nghìn năm.
+         Tham dự Lễ dâng hương tưởng nhớ các bậc tiên đế tại điện Kính Thiên, trung tâm của trời đất, trung tâm của kinh thành Thăng Long xưa.
+         Tham quan khu khảo cổ với các dấu tích cung điện vàng son một thuở, những hiện vật nghìn năm từ lòng đất.
+         Tự tay lấy cho mình những dòng nước mát từ giếng Vua, nguồn nước biểu tượng cho nguồn sống dồi dào và sự may mắn, phúc lành.
+         Tham gia trò chơi Giải mã Hoàng thành Thăng Long bằng thẻ giải mã với màn trình diễn laze bật mí ấn tượng và những phần quà ý nghĩa.
+         Cảm giác thật thư thái khi được ngồi thưởng thức trà sen, mứt sen ngay dưới tán cây bồ đề cổ thụ, biểu tượng cho sự an lành, may mắn.
+
+    Những lưu ý nhỏ khi bạn tham gia tour:
+         Trang phục lịch sự, quần áo, giày dép thoải mái thuận tiện cho việc đi bộ nhiều.
+         Chương trình khởi hành đúng giờ, các bạn vui lòng có mặt trước 15 phút tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu (riêng cổng vào phải chú ý nhé vì khu di sản có nhiều cổng, dễ nhầm đấy).
+         Khu di sản rất rộng, các hoạt động liên tục diễn ra nên các bạn cố gắng bám sát, đi theo hướng dẫn viên của đoàn mình, cẩn thận không dễ bị “củ lạc”.
+         Hoạt động diễn ra ngoài trời, bạn nên mang thêm ô để phòng thời tiết mưa gió thất thường.
+         Chúc các bạn có một trải nghiệm thú vị với tour đêm Giải mã Hoàng thành Thăng Long!`,
+        slideImage: {
+            image0: require('../../assets/tour-images/tour-dem-0.jpg'),
+            image1: require('../../assets/tour-images/tour-dem-1.png'),
+            image2: require('../../assets/tour-images/tour-dem-2.jpg'),
+            image3: require('../../assets/tour-images/tour-dem-3.jpg'),
+            image4: require('../../assets/tour-images/tour-dem-4.jpg'),
+        },
+    },
+    {
+        id: 2,
+        title: 'Tour dành cho du khách trong nước',
+        image: require('../../assets/tour-images/tour-vn-0.jpg'),
+        detail: `   Hướng về cội nguồn.
+
+    Giúp khách tham quan trong nước hiểu biết thêm về Di sản dân tộc.
+
+    Du khách xem phim giới thiệu tổng quan về Hoàng thành Thăng Long qua các thời kỳ lịch sử, dấu ấn linh thiêng qua mỗi triều đại.
+
+    Tham quan và nghe thuyết minh các điểm di tích (Đoan Môn, Nền Điện Kính Thiên, Khu trưng bày hiện vật, Di tích cách mạng Nhà và Hầm D67, Hầm chỉ huy Cục tác chiến, Hậu Lâu, Bắc Môn), giới thiệu kiện Pháp đánh thành Hà Nội và hai nhân vật lịch sử Tổng đốc Hoàng Diệu và Nguyễn Tri Phương.
+
+    Tham gia Nghi lễ dâng hương tại Điện Kính Thiên.
+
+    Thả chim phóng sinh cầu an, cầu hòa bình.
+
+    Tham quan và nghe giới thiệu khu di tích khảo cổ 18 Hoàng Diệu, trải nghiệm nước giếng Hoàng cung xưa.
+
+    Mua sắm quà lưu niệm.`,
+        slideImage: {
+            image0: require('../../assets/tour-images/tour-vn-0.jpg'),
+            image1: require('../../assets/tour-images/tour-vn-1.jpg'),
+            image2: require('../../assets/tour-images/tour-vn-2.jpg'),
+            image3: require('../../assets/tour-images/tour-vn-3.jpg'),
+        },
+    },
+    {
+        id: 3,
+        title: 'Tour dành cho du khách nước ngoài',
+        image: require('../../assets/tour-images/tour-nn-0.jpg'),
+        detail: `   Giúp du khách nước ngoài tìm hiểu chi tiết về Khu di sản Hoàng Thành Thăng Long – Hà Nội với thuyết minh và nhiều hoạt động:
+
+    Phim giới thiệu tổng thể về Hoàng Thành Thăng Long – Hà Nội – Việt Nam (Tiếng Anh, phụ đề Tiếng Việt).
+
+    Tham quan phòng chụp ảnh và chụp hình với trang phục hoàng cung .
+
+    Tham quan và nghe thuyết minh các điểm di tích (Đoan Môn, Nền Điện Kính Thiên, Khu trưng bày hiện vật, Di tích cách mạng Nhà và Hầm D67, Hầm chỉ huy Cục tác chiến, Hậu Lâu, Bắc Môn).
+
+    Tham quan và nghe giới thiệu khu di tích khảo cổ 18 Hoàng Diệu, trải nghiệm nước giếng Hoàng Thành xưa.
+
+    Xem show nghệ thuật dân gian, múa rối nước và trải nghiệm văn hóa dân gian tại các gian hàng lưu niệm “Nét Văn hóa Việt“.`,
+        slideImage: {
+            image0: require('../../assets/tour-images/tour-nn-0.jpg'),
+            image1: require('../../assets/tour-images/tour-nn-1.jpg'),
+            image2: require('../../assets/tour-images/tour-nn-2.jpg'),
+            image3: require('../../assets/tour-images/tour-nn-3.jpg'),
+            image4: require('../../assets/tour-images/tour-nn-4.jpg'),
+        },
+    },
+];

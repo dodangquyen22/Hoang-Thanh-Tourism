@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Button, StyleSheet, Alert, SafeAreaView, TextInput, Image, Dimensions, ScrollView} from "react-native";
+import { View, Text, TouchableOpacity, Button, StyleSheet, Alert, SafeAreaView, TextInput, Image, Dimensions, ScrollView, FlatList} from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
@@ -7,12 +7,30 @@ import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../../components/NavigatorBottomBar";
 import SlideTour from "../../components/SlideTour.js"
 import { ticketStyles } from "../../styles/globalStyles";
+import { tourData } from '../../constants';
 
-export default function SuccessScreen() {
+export default function TourScreen() {
     const navigation = useNavigation();
-    const handlePress = (buttonName) => {
-        navigation.navigate(buttonName)
+    const handlePress = (buttonName, item) => {
+        navigation.navigate(buttonName, { item });
     };
+
+    const data = tourData;
+
+    const renderItem = ({ item }) => (
+        <View style={styles.tourButton}>
+            <Image
+                style={styles.imageButton}
+                source={item.image}
+            />
+            <View>
+                <Text style={styles.titleButton}>{item.title}</Text>
+                <TouchableOpacity onPress={() => handlePress('TourDetail', item)}>
+                    <Text style={styles.textButton}>Xem thêm</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 
     return (
         <View style={styles.container}>
@@ -31,49 +49,15 @@ export default function SuccessScreen() {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <SlideTour></SlideTour>
                 <Text style={styles.subTitle}>Danh sách tour </Text>
-                <View style={styles.tourContainer}>
-                    <View style={styles.tourButton}>
-                        <Image
-                            style={styles.imageButton}
-                            source={require('../../../assets/tour-images/tour-dem-0.jpg')}
-                        />
-                        <View>
-                            <Text style={styles.titleButton}>Tour đêm Hoàng Thành Thăng Long</Text>
-                            <TouchableOpacity onPress={() => handlePress('TourDetail')}>
-                                <Text style={styles.textButton}>Xem thêm</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    <View style={styles.tourButton}>
-                        <Image
-                            style={styles.imageButton}
-                            source={require('../../../assets/tour-images/tour-vn-0.jpg')}
-                        />
-                        <View>
-                            <Text style={styles.titleButton}>Tour tham quan cho du khách trong nước</Text>
-                            <TouchableOpacity>
-                                <Text style={styles.textButton}>Xem thêm</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    <View style={styles.tourButton}>
-                        <Image
-                            style={styles.imageButton}
-                            source={require('../../../assets/tour-images/tour-nn-0.jpg')}
-                        />
-                        <View>
-                            <Text style={styles.titleButton}>Tour tham quan cho du khách nước ngoài</Text>
-                            <TouchableOpacity>
-                                <Text style={styles.textButton}>Xem thêm</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
+                <View style={styles.tourList}>
+                    <FlatList
+                        data={data}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.id.toString()}
+                    />
                 </View>
-            </ScrollView>
 
+            </ScrollView>
             <BottomButtonBar />
         </View>
     )
@@ -134,5 +118,9 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height * 0.07,
         borderRadius: 15,
         margin: '1%',
+    },
+    tourList: {
+        width: Dimensions.get('window').width * 0.9,
+        margin:'5%',
     },
 });
