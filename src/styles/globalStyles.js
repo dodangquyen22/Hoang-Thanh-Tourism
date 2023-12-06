@@ -26,7 +26,7 @@ export const globalStyles = StyleSheet.create({
         paddingHorizontal: 20,
         borderTopWidth: 1,
         borderColor: 'gray',
-        backgroundColor: 'white',
+        backgroundColor: '#fff',
 
     },
     buttonNavigator: {

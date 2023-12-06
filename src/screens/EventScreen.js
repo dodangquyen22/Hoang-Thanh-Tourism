@@ -5,6 +5,7 @@ import BottomButtonBar from "../components/NavigatorBottomBar";
 import GridEvent from "../components/GridEvent";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Notification from "../components/TableEvent";
+import { theme } from '../theme';
 
 export default function EventScreen() {
     const navigation = useNavigation();
@@ -21,6 +22,7 @@ export default function EventScreen() {
         <View style={styles.container}>
             <View style={styles.title}>
                 <Text style={styles.titleText}>Sự kiện</Text>
+                
             </View>
             <Notification />
             <BottomButtonBar /> 
@@ -40,14 +42,15 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height * 0.08,
         marginTop: 40,
         justifyContent: 'space-between',
-        textAlign: 'center',
+        textAlign: 'center'
     },
     titleText: {
         flex: 1,
         color: "black",
         fontSize: 24,
         fontWeight: "bold",
-        paddingLeft: 10
+        paddingLeft: 10,
+        color: theme.text
     },
     titleIcon: {
         color: "black",

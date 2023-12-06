@@ -42,7 +42,7 @@ export default function DestinationScreen(props) {
                         {item?.title}
                     </Text>
                 </View>
-                <Text style={{fontSize: wp(3.7)}} className="text-neutral-700 tracking-wide mb-2">{item?.longDescription}</Text>
+                <Text style={{fontSize: wp(3.7), textAlign: 'justify'}} className="text-neutral-700 tracking-wide mb-2">{item?.longDescription}</Text>
                 {/* <View className="flex-row justify-between mx-1">
                     <View>
                         <Text>

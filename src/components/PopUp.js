@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#ffffff",
         borderRadius: 25,
-        borderWidth: 1,
+        borderWidth: 0.5,
         borderColor: "#000",
         borderStyle: "solid",
     },
@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
     body: {
         justifyContent: "center",
         margin: 20,
-        minHeight: 150,
+        minHeight: 20,
     },
     footer: {
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
         padding: 20,
         flexDirection: "row",

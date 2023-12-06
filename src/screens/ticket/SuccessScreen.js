@@ -52,7 +52,7 @@ export default function SuccessScreen() {
     })
 
     const handlePress = (buttonName) => {
-        navigation.navigate(buttonName)
+        navigation.navigate(buttonName);
     };
 
     const formatDate = (date) => {
@@ -141,12 +141,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     button: {
-        width: Dimensions.get('window').width * 0.34,
+        width: Dimensions.get('window').width * 0.35,
         height: Dimensions.get('window').height * 0.05,
         borderRadius: 15,
         backgroundColor: 'rgb(86, 125, 137)',
         textAlign: 'center',
-        margin: '5%',
+        marginBottom: '6%',
     },
     rowButton: {
         flexDirection: 'row',
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         textAlign: 'center',
-        marginTop: '5%',
+        marginTop: '8%',
     },
     body: {
         height: Dimensions.get('window').height * 0.4,

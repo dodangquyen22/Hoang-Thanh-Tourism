@@ -26,10 +26,13 @@ const NotificationScreen = () => {
     <View style={styles.eventItem}>
       <TouchableOpacity style={styles.box} onPress={() => handlePress(item)}>
         <Image source={item.image} style={styles.eventImage} />
-        <Text style={styles.title}>{item.title}</Text>
+        <View >
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.date}>Từ: 1/1/2023 đên 2/1/2023</Text>
+        </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={pressIcon}>
-        <MaterialCommunityIcons name="bell-ring" color="orange" size={26} />
+        <MaterialCommunityIcons name="bell-circle" color="orange" size={36} />
       </TouchableOpacity>
     </View>
   );
@@ -55,20 +58,20 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 0.98,
     shadowColor: '#000',
     shadowOpacity: 0.1,
-  },box: {
+  }, box: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     height: 80,
     width: Dimensions.get('window').width * 0.98,
-  
+
   },
   eventImage: {
     width: 120,
     height: 70,
     marginRight: 10,
     left: 0,
-    borderRadius: 5,
+    borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -85,11 +88,15 @@ const styles = StyleSheet.create({
   }, flatList: {
     height: Dimensions.get('window').height * 0.4,
     marginBottom: 80,
-  },title: {
-    fontSize: 14,
+  }, title: {
+    fontSize: 16,
     marginLeft: 5,
   }, icon: {
     textAlign: 'center',
+  }, date: {
+    margin: 5,
+    fontSize: 12,
+    opacity: 0.5
   }
 });
 

@@ -5,23 +5,25 @@ import BottomButtonBar from "../components/NavigatorBottomBar";
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigationState } from "@react-navigation/native";
 
-export default function EventDetails({route}) {
+
+export const SearchResult = ({ route }) => {
     const navigation = useNavigation();
-    const item = route.params.item;
+    const item = route.params.searchResults;
+    console.log(item)
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity style={styles.icon} onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back" size={28} color={"#f97316"}/>
                 </TouchableOpacity>
-                <Text style={styles.titleHeader}>Thông tin sự kiện</Text>
+                <Text style={styles.titleHeader}>Cổ Vật</Text>
                 <View style={styles.icon} />
             </View>
             <ScrollView style={styles.boxContent}>
                 {/* <SlideImage /> */}
                 <Image style={styles.image} source={item.image} alt="image" />
                 <ScrollView style={styles.descriptionContainer}>
-                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.title}>{item.name}</Text>
                     <Text style={styles.descriptionText}>
                         {item.description}
                     </Text>
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         flex: 1,
-        color: "#f97316"
+        color : "#f97316"
     },
     title: {
         fontSize: 24,

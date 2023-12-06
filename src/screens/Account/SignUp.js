@@ -10,7 +10,34 @@ const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
+  const handleValidInput = () => {
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (username.length < 6) {
+      setError('Username must be at least 6 characters');
+      return false;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return false;
+    }
+    if (phone.length < 10) {
+      setError('Phone must be at least 10 characters');
+      return false;
+    }
+    if (email.length < 6) {
+      setError('Email must be at least 6 characters');
+      return false;
+    }
+
+    if (!validRegex.test(email)) {
+      setError('Email is invalid');
+      return false;
+    }
+    return true;
+  }
+
   const handleSignUp = async () => {
+    handleValidInput();
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
