@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity, Image, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const SignUpScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -71,7 +72,9 @@ const SignUpScreen = ({ navigation }) => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      
       <View style={styles.container}>
+      <KeyboardAwareScrollView contentContainerStyle={styles.container}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Ionicons name="chevron-back-circle-outline" size={32}>
           </Ionicons>
@@ -101,7 +104,9 @@ const SignUpScreen = ({ navigation }) => {
         <TextInput style={styles.input} placeholder="email" value={email} onChangeText={text => setEmail(text)} />
         {error ? <Text style={styles.error}>{error}</Text> : null}
         <Button title="Đăng kí" onPress={handleSignUp} />
+        </KeyboardAwareScrollView>
       </View>
+      
     </TouchableWithoutFeedback>
   );
 };
@@ -112,9 +117,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
+    
   },
   input: {
-    width: '100%',
+    width: 300,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
@@ -123,7 +129,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 16,
+    top: 40,
     left: 16,
     zIndex: 999,
   },

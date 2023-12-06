@@ -76,21 +76,21 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 16,
-    left: 16,
+    top: 50,
+    left: 40,
     zIndex: 999,
   },
   backButtonText: {
     color: 'blue',
     fontSize: 16,
   },
-  logo: {
-    width: 150,
-    height: 150,
-    marginBottom: 32,
-  },
+  // logo: {
+  //   width: 250,
+  //   height: 250,
+  //   marginBottom: 32,
+  // },
   input: {
-    width: '100%',
+    width: 300,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
