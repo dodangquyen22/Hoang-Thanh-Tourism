@@ -8,11 +8,11 @@ import { useNavigation } from "@react-navigation/native";
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 const Settings = () => {
 
   const [isLoggedIn, setisLoggedIn] = useState(null);
   const [error, setError] = useState('');
+  const[dataTicket, setDataTicket] = useState([]);
   const retrieveUserData = async () => {
     try {
       const data = await AsyncStorage.getItem('isLoggedIn');
@@ -26,6 +26,7 @@ const Settings = () => {
     retrieveUserData();
   }, []);
 
+
   const handlePressInfo = () => {
     if (isLoggedIn) {
       navigation.navigate("InfoUser")
@@ -36,7 +37,7 @@ const Settings = () => {
 
   const handleLoginLogout = async () => {
     try {
-      const response = await fetch('http://192.168.1.14:3000/logout', {
+      const response = await fetch('http://192.168.99.16:3000/logout', {
         method: 'POST',
         headers:
         {

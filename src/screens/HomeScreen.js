@@ -14,12 +14,15 @@ import { useState } from "react";
 import { useEffect } from 'react';
 export default function HomeScreen({ navigation }) {
     const [userData, setUserData] = useState(null);
+    const [isLoggedIn, setisLoggedIn] = useState(null);
     const retrieveUserData = async () => {
         try {
           const data = await AsyncStorage.getItem('userData');
+          const logined = await AsyncStorage.getItem('isLoggedIn');
           if (data) {
             const parsedData = JSON.parse(data);
             setUserData(parsedData);
+            setisLoggedIn(logined)
             // console.log(parsedData);
           } else {
             setUserData(null);
@@ -37,6 +40,14 @@ export default function HomeScreen({ navigation }) {
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName)
     }
+
+    const checkTicket = (() => {
+        if (isLoggedIn) {
+            navigation.navigate("Ticket")
+        } else {
+            navigation.navigate("LoginScreen")
+        }
+    })
     // console.log(userData)
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -69,7 +80,7 @@ export default function HomeScreen({ navigation }) {
                     <View >
                         <Text style={{fontSize: 23, color: theme.text, marginLeft: 20, marginBottom: 20, marginTop: 10}} className="font-semibold text-neutral-700">Dịch vụ</Text>
                         <View style={styles.service}>
-                            <TouchableOpacity onPress={() => handlePress('Ticket')}>
+                            <TouchableOpacity onPress={checkTicket}>
                             <View style={styles.imageContainer}>
                                 <Image
                                     source={require("../../assets/images/ticket-icon.jpg")}
