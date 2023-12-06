@@ -22,8 +22,8 @@ export const info = {
 };
 
 export default function TicketScreen() {
-    const [text, onChangeText] = React.useState();
-    const [phone, onChangePhone] = React.useState();
+    const [text, onChangeText] = React.useState('');
+    const [phone, onChangePhone] = React.useState('');
     const [adultTicket, onChangeAdult] = React.useState(0);
     const [childTicket, onChangeChild] = React.useState(0);
     const price = 30000;
@@ -34,9 +34,13 @@ export default function TicketScreen() {
     const [warn, setWarn] = React.useState(false);
 
     const [isConfirmVisible, setConfirmVisible] = React.useState(false);
+    const [isRejectVisible, setRejectVisible] = React.useState(false);
     const [isHelpVisible, setHelpVisible] = React.useState(false);
 
     const navigation = useNavigation();
+
+    const nameRegex = /^[a-zA-Z][a-zA-Z ]*[a-zA-Z]$/;
+
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName);
         setConfirmVisible(!isConfirmVisible);
@@ -48,10 +52,11 @@ export default function TicketScreen() {
         info.fee = price * adultTicket + price * childTicket / 2;
     };
 
-
     const toggleModal = (typeOfModal) => {
-        if (typeOfModal == 'confirm') {
+        if (typeOfModal === 'confirm') {
             setConfirmVisible(!isConfirmVisible);
+        } else if (typeOfModal === 'reject') {
+            setRejectVisible(!isRejectVisible);
         } else {
             setHelpVisible(!isHelpVisible);
         }
@@ -67,19 +72,6 @@ export default function TicketScreen() {
             setDate(currentDate);
             setWarn(true);
         }
-    };
-
-    const showMode = (currentMode) => {
-        DateTimePickerAndroid.open({
-        value: date,
-        onChange,
-        mode: currentMode,
-        is24Hour: true,
-        });
-    };
-
-    const showDatepicker = () => {
-        showMode('date');
     };
 
     const formatDate = (date) => {
@@ -105,8 +97,12 @@ export default function TicketScreen() {
         }
     };
 
-    const confirm = () => {
-        Alert.alert('Xác nhận thông tin');
+    const handleConfirm = () => {
+        if (text != '' && phone != '' && (adultTicket > 0 || childTicket > 0)) {
+            toggleModal('confirm');
+        } else {
+            toggleModal('reject');
+        }
     };
 
     return (
@@ -117,7 +113,7 @@ export default function TicketScreen() {
                     </Ionicons>
                 </TouchableOpacity>
                 <Text style={ticketStyles.titleText}>Đặt vé</Text>
-                <TouchableOpacity style={ticketStyles.icon} onPress={() => Alert.alert('Hướng dẫn mua vé')}>
+                <TouchableOpacity style={ticketStyles.icon} onPress={() => toggleModal('help')}>
                     <Ionicons style={ticketStyles.icon} name="information-circle-outline" size={40}>
                     </Ionicons>
                 </TouchableOpacity>
@@ -193,25 +189,60 @@ export default function TicketScreen() {
                 </View>
             </ScrollView>
 
-            <TouchableOpacity style={ticketStyles.buttonContainer} onPress={() => toggleModal('confirm')}>
+            <TouchableOpacity style={ticketStyles.buttonContainer} onPress={() => handleConfirm()}>
                 <Text style={ticketStyles.button}>Xác nhận</Text>
             </TouchableOpacity>
 
             <BottomButtonBar />
+
             <PopUp isVisible={isConfirmVisible}>
                 <PopUp.Container>
                     <PopUp.Header title="Xác nhận thông tin" />
                     <PopUp.Body>
                         <Text style={ticketStyles.popText}>Người đặt vé: {text}</Text>
                         <Text style={ticketStyles.popText}>Số điện thoại: {phone}</Text>
-                        {console.log({phone})}
                         <Text style={ticketStyles.popText}>Thông tin vé: {adultTicket} vé người lớn + {childTicket} vé học sinh /
                          sinh viên / người cao tuổi, ngày {formatDate(date)}</Text>
                         <Text style={ticketStyles.popText}>Thành tiền: </Text>
                         <Text style={ticketStyles.strong}>{price * adultTicket + price * childTicket / 2} VND</Text>
                     </PopUp.Body>
                     <PopUp.Footer>
+                        <Button title="Quay lại" onPress={() => setConfirmVisible(!isConfirmVisible)} />
                         <Button title="Xác nhận" onPress={() => handlePress('SuccessTicket')} />
+                    </PopUp.Footer>
+                </PopUp.Container>
+            </PopUp>
+
+            <PopUp isVisible={isRejectVisible}>
+                <PopUp.Container>
+                    <PopUp.Header title="Thông báo" />
+                    <PopUp.Body>
+                        { (text == '' || phone == '') ?
+                            <Text style={ticketStyles.popText}>Vui lòng điền đầy đủ thông tin!</Text> :
+                            ( (nameRegex.test(text)) ? (<Text style={ticketStyles.popText}>Họ và tên không hợp lệ!</Text>) :
+                                ((phone.length != 10 || phone.charAt(0) != '0') ? (<Text style={ticketStyles.popText}>Số điện thoại không hợp lệ!</Text> ) :
+                                    ( (adultTicket <= 0 || childTicket <= 0) ? (<Text style={ticketStyles.popText}>Vui lòng chọn số lượng vé!</Text>) :
+                                        (<Text style={ticketStyles.popText}>No error found!</Text>)
+                                    )
+                                )
+                            )
+                        }
+                    </PopUp.Body>
+                    <PopUp.Footer>
+                        <Button title="Quay lại" onPress={() => setRejectVisible(!isRejectVisible)} />
+                    </PopUp.Footer>
+                </PopUp.Container>
+            </PopUp>
+
+            <PopUp isVisible={isHelpVisible}>
+                <PopUp.Container>
+                    <PopUp.Header title="Hướng dẫn mua vé" />
+                    <PopUp.Body>
+                        <Text style={ticketStyles.popText}>Điền đầy đủ thông tin "Họ và tên", "Số điện thoại", sau đó chọn ngày tham quan và số lượng vé tương ứng</Text>
+                        <Text style={ticketStyles.popText}>Lưu ý: Thanh toán vé tại quầy vé ở cổng Hoàng Thành Thăng Long.</Text>
+                    </PopUp.Body>
+                    <PopUp.Footer>
+                        <Button title="Quay lại" onPress={() => setHelpVisible(!isHelpVisible)} />
                     </PopUp.Footer>
                 </PopUp.Container>
             </PopUp>
