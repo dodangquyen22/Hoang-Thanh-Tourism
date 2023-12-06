@@ -5,13 +5,12 @@ import { useNavigation } from "@react-navigation/native";
 
 export const EditUserInfoWindow = ({ user, onSaveChanges, onCancelChanges }) => {
     const navigation = useNavigation();
-    const [name, setName] = React.useState(user.name);
     const [email, setEmail] = React.useState(user.email);
     const [phone, setPhone] = React.useState(user.phone);
-    const [birthday, setBirthday] = React.useState(user.birthday);
 
     const handleSaveChanges = () => {
-        const updatedUser = { ...user, name, email, phone, birthday };
+        const updatedUser = { ...user, email, phone };
+        console.log(phone);
         onSaveChanges(updatedUser);
     };
 
@@ -19,12 +18,6 @@ export const EditUserInfoWindow = ({ user, onSaveChanges, onCancelChanges }) => 
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
 
-                <TextInput
-                    style={styles.input}
-                    value={name}
-                    onChangeText={setName}
-                    placeholder="Name"
-                />
                 <TextInput
                     style={styles.input}
                     value={email}
@@ -36,12 +29,6 @@ export const EditUserInfoWindow = ({ user, onSaveChanges, onCancelChanges }) => 
                     value={phone}
                     onChangeText={setPhone}
                     placeholder="Phone"
-                />
-                <TextInput
-                    style={styles.input}
-                    value={birthday}
-                    onChangeText={setBirthday}
-                    placeholder="Birthday"
                 />
 
                 <View style={styles.boxButton}>

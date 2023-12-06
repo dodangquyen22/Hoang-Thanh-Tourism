@@ -10,13 +10,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Settings = () => {
 
+  const [username, setUsername] = useState(null);
   const [isLoggedIn, setisLoggedIn] = useState(null);
   const [error, setError] = useState('');
   const[dataTicket, setDataTicket] = useState([]);
   const retrieveUserData = async () => {
     try {
       const data = await AsyncStorage.getItem('isLoggedIn');
-      if (data) { setisLoggedIn(data) }
+      if (data) {
+        setisLoggedIn(data)
+      }
 
     } catch (error) {
       console.error(error);
@@ -27,8 +30,12 @@ const Settings = () => {
   }, []);
 
 
+  
   const handlePressInfo = () => {
+
     if (isLoggedIn) {
+
+
       navigation.navigate("InfoUser")
     } else {
       navigation.navigate("LoginScreen")
@@ -37,7 +44,7 @@ const Settings = () => {
 
   const handleLoginLogout = async () => {
     try {
-      const response = await fetch('http://192.168.99.16:3000/logout', {
+      const response = await fetch('http://192.168.31.7:3000/logout', {
         method: 'POST',
         headers:
         {

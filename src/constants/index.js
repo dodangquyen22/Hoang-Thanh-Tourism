@@ -160,26 +160,33 @@ export const eventData = [
 export let historySearch = [
   {
     id: 1,
-    name: 'Bát gốm',
-    image: require('../../assets/images/bat.jpg')
+    title: 'Bát gốm',
+    image: require('../../assets/images/bat.jpg'),
+    longDescription: 'Khai quật từ năm 2002, với diện tích khai quật lớn nhất từ trước đến nay, khu di tích đã phát lộ một hệ thống di tích, di vật vô cùng phong phú, đa dạng. Bên cạnh những dấu tích kiến trúc đan xen, chồng xếp lên nhau qua nhiều thời kỳ lịch sử là hàng triệu hiện vật được tìm thấy trong lòng đất huyền bí. Nhiều hơn cả là những di vật vật liệu trang trí kiến trúc cung đình cùng các đồ dùng của Hoàng cung xưa kia, minh chứng cho sự phát triển của kinh đô Thăng Long, kinh đô của quốc gia Đại Việt từ thế kỷ 11 đến thế kỷ 18'
   },
   {
     id: 2,
-    name: 'Tượng',
-    image: require('../../assets/images/tuong.jpg')
+    title: 'Tượng',
+    image: require('../../assets/images/tuong.jpg'),
+    longDescription: 'Khai quật từ năm 2002, với diện tích khai quật lớn nhất từ trước đến nay, khu di tích đã phát lộ một hệ thống di tích, di vật vô cùng phong phú, đa dạng. Bên cạnh những dấu tích kiến trúc đan xen, chồng xếp lên nhau qua nhiều thời kỳ lịch sử là hàng triệu hiện vật được tìm thấy trong lòng đất huyền bí. Nhiều hơn cả là những di vật vật liệu trang trí kiến trúc cung đình cùng các đồ dùng của Hoàng cung xưa kia, minh chứng cho sự phát triển của kinh đô Thăng Long, kinh đô của quốc gia Đại Việt từ thế kỷ 11 đến thế kỷ 18'
   },
   {
     id: 3,
-    name: 'Vò',
-    image: require('../../assets/images/vo.jpg')
+    title: 'Vò',
+    image: require('../../assets/images/vo.jpg'),
+    longDescription: 'Khai quật từ năm 2002, với diện tích khai quật lớn nhất từ trước đến nay, khu di tích đã phát lộ một hệ thống di tích, di vật vô cùng phong phú, đa dạng. Bên cạnh những dấu tích kiến trúc đan xen, chồng xếp lên nhau qua nhiều thời kỳ lịch sử là hàng triệu hiện vật được tìm thấy trong lòng đất huyền bí. Nhiều hơn cả là những di vật vật liệu trang trí kiến trúc cung đình cùng các đồ dùng của Hoàng cung xưa kia, minh chứng cho sự phát triển của kinh đô Thăng Long, kinh đô của quốc gia Đại Việt từ thế kỷ 11 đến thế kỷ 18'
+
   }, {
     id: 4,
-    name: 'Thạp gốm',
-    image: require('../../assets/images/thapgom.jpg')
+    title: 'Thạp gốm',
+    image: require('../../assets/images/thapgom.jpg'),
+    longDescription: 'Khai quật từ năm 2002, với diện tích khai quật lớn nhất từ trước đến nay, khu di tích đã phát lộ một hệ thống di tích, di vật vô cùng phong phú, đa dạng. Bên cạnh những dấu tích kiến trúc đan xen, chồng xếp lên nhau qua nhiều thời kỳ lịch sử là hàng triệu hiện vật được tìm thấy trong lòng đất huyền bí. Nhiều hơn cả là những di vật vật liệu trang trí kiến trúc cung đình cùng các đồ dùng của Hoàng cung xưa kia, minh chứng cho sự phát triển của kinh đô Thăng Long, kinh đô của quốc gia Đại Việt từ thế kỷ 11 đến thế kỷ 18'
+
   }, {
     id: 5,
-    name: 'Liễn Gốm',
-    image: require('../../assets/images/liengom.jpg')
+    title: 'Liễn Gốm',
+    image: require('../../assets/images/liengom.jpg'),
+    longDescription: 'Khai quật từ năm 2002, với diện tích khai quật lớn nhất từ trước đến nay, khu di tích đã phát lộ một hệ thống di tích, di vật vô cùng phong phú, đa dạng. Bên cạnh những dấu tích kiến trúc đan xen, chồng xếp lên nhau qua nhiều thời kỳ lịch sử là hàng triệu hiện vật được tìm thấy trong lòng đất huyền bí. Nhiều hơn cả là những di vật vật liệu trang trí kiến trúc cung đình cùng các đồ dùng của Hoàng cung xưa kia, minh chứng cho sự phát triển của kinh đô Thăng Long, kinh đô của quốc gia Đại Việt từ thế kỷ 11 đến thế kỷ 18'
   },
 ];
 

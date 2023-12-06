@@ -24,7 +24,7 @@ export default function SuccessScreen() {
             adult =info.adult;
             child = info.child;
             fee = info.fee;
-            const response = await fetch('http://192.168.99.16:3000/ticket', {
+            const response = await fetch('http://192.168.31.7:3000/ticket', {
             method: 'POST',
             headers:
             {
@@ -85,10 +85,10 @@ export default function SuccessScreen() {
                     <View style={styles.footer}>
                         <View style={styles.rowButton}>
                             <TouchableOpacity style={styles.button} onPress={() => handlePress('Home')}>
-                                <Text style={styles.textButton}>Về trang chủ</Text>
+                                <Text style={styles.textButton}>Trang chủ</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.button} onPress={() => handlePress('Ticket')}>
-                                <Text style={styles.textButton}>Tạo giao dịch khác</Text>
+                                <Text style={styles.textButton}>Giao dịch mới</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
         color: 'rgb(86, 125, 137)',
         margin: '10%',
         textAlign: 'center',
+        marginBottom: 10
     },
     titleText: {
         fontSize: 30,
@@ -174,6 +175,6 @@ const styles = StyleSheet.create({
     },
     textContent: {
         paddingLeft: '5%',
-        paddingTop: '12%',
+        paddingTop: '8%',
     },
 });

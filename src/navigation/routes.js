@@ -20,7 +20,6 @@ import TourScreen from "../screens/tour/TourScreen.js";
 import LoginScreen from "../screens/Account/Login.js";
 import SignUpScreen from "../screens/Account/SignUp.js";
 import TourDetail from "../screens/tour/TourDetail.js"
-import { SearchResult } from "../components/SearchResult.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -51,7 +50,6 @@ function AppNavigation() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="Destination" component={DestinationScreen}></Stack.Screen>
-        <Stack.Screen name="SearchResult" component={SearchResult}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -11,7 +11,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = async () => {
     // Xử lý logic đăng nhập ở đây
     try {
-      const response = await fetch('http://192.168.99.16:3000/login', {
+      const response = await fetch('http://192.168.31.7:3000/login', {
         method: 'POST',
         headers:
         {
@@ -24,6 +24,7 @@ const LoginScreen = ({ navigation }) => {
       console.log(data)
       if (response.ok) {
         // Đăng ký thành công, chuyển đến màn hình đăng nhập
+        console.log(data)
         await AsyncStorage.setItem('isLoggedIn', 'true');
         await AsyncStorage.setItem('userData', JSON.stringify(data));
         navigation.navigate('Home', { refresh: true });
