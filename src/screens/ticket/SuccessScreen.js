@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, Button, StyleSheet, Alert, SafeAreaView, TextInput, Image, Dimensions} from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -7,9 +7,50 @@ import { useNavigation } from "@react-navigation/native";
 import BottomButtonBar from "../../components/NavigatorBottomBar";
 import { ticketStyles } from "../../styles/globalStyles";
 import { info } from "./TicketScreen";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SuccessScreen() {
     const navigation = useNavigation();
+    const [error, setError] = useState('');
+    
+    const registerTiket = async () => {
+        // Xử lý logic đăng nhập ở đây
+        try {
+            parsedData = await AsyncStorage.getItem('userData');
+            username = JSON.parse(parsedData);
+            name = info.name;
+            phone = info.phone;
+            date = info.date;
+            adult =info.adult;
+            child = info.child;
+            fee = info.fee;
+            const response = await fetch('http://192.168.99.16:3000/ticket', {
+            method: 'POST',
+            headers:
+            {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({username ,name, phone, date, adult, child, fee}),
+          });
+    
+          const data = await response.json();
+          console.log(data)
+          if (response.ok) {
+            await AsyncStorage.setItem('ID', JSON.stringify(data));
+          } else {
+            // Xử lý lỗi từ máy chủ
+            setError(data.error);
+          }
+        } catch (error) {
+          console.error(error);
+          setError('An error occurred. Please try again.');
+        }
+      };
+
+    useEffect(() => {
+        registerTiket();
+    })
+
     const handlePress = (buttonName) => {
         navigation.navigate(buttonName);
     };

@@ -6,11 +6,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async () => {
     // Xử lý logic đăng nhập ở đây
     try {
-      const response = await fetch('http://192.168.1.14:3000/login', {
+      const response = await fetch('http://192.168.99.16:3000/login', {
         method: 'POST',
         headers:
         {
@@ -20,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
       });
 
       const data = await response.json();
-
+      console.log(data)
       if (response.ok) {
         // Đăng ký thành công, chuyển đến màn hình đăng nhập
         await AsyncStorage.setItem('isLoggedIn', 'true');
@@ -58,6 +59,7 @@ const LoginScreen = ({ navigation }) => {
           value={password}
           onChangeText={text => setPassword(text)}
         />
+        {error ? <Text style={{color: 'red'}}>{error}</Text> : null}
         <Button title="Đăng nhập" onPress={handleLogin} />
         <Button title="Đăng kí" onPress={() => navigation.navigate("SignUpScreen")} />
       </View>

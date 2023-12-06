@@ -4,6 +4,7 @@ import BottomButtonBar from '../../components/NavigatorBottomBar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Dimensions, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function ChangePasswordScreen() {
@@ -11,12 +12,48 @@ export default function ChangePasswordScreen() {
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleChangePassword = () => {
-        // Perform password change logic here
-        // Validate oldPassword, newPassword, and confirmPassword
-        // Update password in your app's database or perform necessary actions
-    };
+    const handleChangePassword = async () => {
+        parsedData = await AsyncStorage.getItem('userData');
+        username = JSON.parse(parsedData);
+
+        if (newPassword !== confirmPassword) {
+          setError('Mật khẩu mới nhập không khớp');
+          return;
+        }
+        
+        try {
+          const response = await fetch('http://192.168.99.16:3000/changePass', {
+            method: 'POST',
+            headers:
+            {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({username,oldPassword,newPassword}),
+          });
+    
+          const data = await response.json();
+    
+          if (response.ok) {
+            // console.log(data)
+            // Đăng ký thành công, chuyển đến màn hình đăng nhập
+            navigation.navigate('Home');
+          } else {
+            // Xử lý lỗi từ máy chủ
+            setError(data.error);
+          }
+        } catch (error) {
+          console.error(error);
+          setError('An error occurred. Please try again.');
+        }
+      };
+
+    // const handleChangePassword = () => {
+    //     // Perform password change logic here
+    //     // Validate oldPassword, newPassword, and confirmPassword
+    //     // Update password in your app's database or perform necessary actions
+    // };
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -51,6 +88,7 @@ export default function ChangePasswordScreen() {
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
             />
+            {error ? <Text style={styles.error}>{error}</Text> : null}
             <TouchableOpacity style={styles.button} onPress={handleChangePassword}>
                 <Text style={styles.buttonText}>Change Password</Text>
             </TouchableOpacity>
@@ -116,4 +154,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
     },
+    error: {
+        color: 'red',
+        marginBottom: 16,
+      },
 });
