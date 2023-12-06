@@ -24,12 +24,9 @@ function ReviewScreen() {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <TouchableOpacity style={styles.icon} onPress={() => navigation.goBack()}>
-                        <Ionicons name="chevron-back-circle-outline" size={32}>
-                        </Ionicons>
+                        <Ionicons name="arrow-back" size={28} />
                     </TouchableOpacity>
-                    <View>
-                        <Text style={styles.titleHeader}>Rate</Text>
-                    </View>
+                    <Text style={styles.titleHeader}>Rate</Text>
                 </View>
                 <Text style={styles.title}>Nhận xét về ứng dụng</Text>
                 <TextInput
@@ -46,7 +43,7 @@ function ReviewScreen() {
                 />
                 <BottomButtonBar />
             </View>
-            
+
         </TouchableWithoutFeedback>
     );
 }
@@ -57,20 +54,29 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
+        position: 'relative',
     }, header: {
         position: 'absolute',
         flexDirection: 'row',
-        height: Dimensions.get('window').height * 0.08,
-        width: Dimensions.get('window').width * 0.98,
-        marginTop: 30,
-        marginLeft: 5,
+        height: Dimensions.get('window').height * 0.06,
+        width: Dimensions.get('window').width,
         textAlign: 'center',
         borderColor: 'grey',
         borderWidth: 0,
         borderBottomWidth: 2,
         top: 0,
+        justifyContent: 'center',
+        marginTop: Dimensions.get('window').height * 0.03, // Điều chỉnh marginTop để căn giữa theo chiều dọc
+    },
+    titleHeader: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1,
+        marginLeft: -28,
     }, icon: {
         textAlign: 'center',
+        marginLeft: 10,
     },
     titleText: {
         flex: 2,
@@ -78,11 +84,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: "bold",
         textAlign: 'center',
-    }, titleHeader: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginLeft: 125,
     },
     title: {
         fontSize: 24,
