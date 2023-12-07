@@ -13,7 +13,7 @@ const topMargin = ios? '': 'mt-10';
 
 export default function DestinationScreen(props) {
     const item = props.route.params;
-    // console.log(props)
+    console.log(item)
     const navigation = useNavigation();
     const [isFavourite, toggleFavourite] = useState(false);
 

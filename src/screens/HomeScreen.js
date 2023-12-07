@@ -20,19 +20,28 @@ export default function HomeScreen({ navigation }) {
     const [clicked, setClicked] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     let searchResults = {}
-    const [notFound, setNotFound] = useState(false);
+
+    function removeDiacritics(str) {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
 
     const handleSearch = (value) => {
-        console.log(value);
         setSearchValue(value);
         historySearch.forEach((item) => {
-            if (item.name.includes(value)) {
+            titleItem = removeDiacritics(item.title);
+            valueTitle = removeDiacritics(value);
+            if (titleItem.toLowerCase().includes(valueTitle.toLowerCase())) {
                 searchResults = item;
             }
         })
 
-        console.log(searchResults)
-        navigation.navigate("SearchResult", { searchResults });
+        if (Object.keys(searchResults).length === 0) {
+            alert("Không tìm thấy kết quả phù hợp")
+        } else {
+            console.log(searchResults)
+            navigation.navigate("Destination", searchResults);
+        }
+
     }
 
 
@@ -70,10 +79,17 @@ export default function HomeScreen({ navigation }) {
         }
     })
 
-    const checkWithoutFeedBack= ()=> {
+    const checkWithoutFeedBack = () => {
+        setClicked(false);
         Keyboard.dismiss();
-        if (clicked == true) {
-            setClicked(false);
+    }
+
+    const checkLogin = () => {
+        if (userData != null) {
+            console.log(123)
+            navigation.navigate('InfoUser');
+        } else {
+            navigation.navigate('LoginScreen');
         }
     }
     // console.log(userData)
@@ -85,7 +101,7 @@ export default function HomeScreen({ navigation }) {
 
                         <View className="mx-5 flex-row justify-between items-center mb-10" style={{ marginBottom: 10 }}>
                             <Text style={{ fontSize: wp(7) }} className="font-bold text-neutral-700">{userData ? `Xin chào ${userData}` : 'Xin chào'}</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={checkLogin}>
                                 <Image source={require('../../assets/images/avatar.png')} style={{ height: wp(12), width: wp(12) }} />
                             </TouchableOpacity>
                         </View>
@@ -100,7 +116,7 @@ export default function HomeScreen({ navigation }) {
                                     // onBlur={() => setClicked(false)}
                                     onChangeText={text => setSearchValue(text)}
                                     onSubmitEditing={() => handleSearch(searchValue)}
-
+                                    
                                 />
                             </View>
 
@@ -112,11 +128,11 @@ export default function HomeScreen({ navigation }) {
                                     <TouchableOpacity
                                         key={index}
                                         onPress={() => {
-                                            handleSearch(item.name);
+                                            handleSearch(item.title);
                                         }}
                                         style={styles.recomendTextbox}
                                     >
-                                        <Text style={styles.textRecomend}>{item.name}</Text>
+                                        <Text style={styles.textRecomend}>{item.title}</Text>
                                     </TouchableOpacity>
                                 ))}
                             </View> : null}
@@ -237,7 +253,7 @@ const styles = StyleSheet.create({
         //        borderColor: 'black',
         width: Dimensions.get('window').width * 0.18, // Điều chỉnh chiều rộng của hình ảnh theo ý muốn
         height: Dimensions.get('window').width * 0.18, // Điều chỉnh chiều cao của hình ảnh theo ý muốn,
-        tintColor: 'red'
+        tintColor: 'orange'
     },
     text: {
         marginTop: '2%', // Điều chỉnh khoảng cách giữa hình ảnh và văn bản theo ý muốn
@@ -267,13 +283,12 @@ const styles = StyleSheet.create({
         backgroundColor: theme.background,
         borderRadius: 10,
         marginBottom: 10,
-        
-        
+
     }, textRecomend: {
-        fontSize: wp(3.5),
-        color: theme.text,
+        fontSize: 16,
+        color: 'gray',
         marginLeft: 10,
-        
+
     }
 });
 

@@ -28,7 +28,6 @@ export default function EventDetails({route}) {
                 </ScrollView>
             </ScrollView>
 
-            <BottomButtonBar />
         </View>
     )
 }
