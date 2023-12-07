@@ -10,6 +10,7 @@ const SignUpScreen = ({ navigation }) => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [isValid, setIsValid] = useState(true);
 
   const handleValidInput = () => {
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -19,33 +20,23 @@ const SignUpScreen = ({ navigation }) => {
     }
     if (password.length < 6) {
       setError('Password must be at least 6 characters');
-      return false;
+      return false
     }
     if (phone.length < 10) {
       setError('Phone must be at least 10 characters');
-      return false;
-    }
-    if (email.length < 6) {
-      setError('Email must be at least 6 characters');
-      return false;
+      return false
     }
 
     if (!validRegex.test(email)) {
       setError('Email is invalid');
-      return false;
+      return false
     }
-    return true;
+    return true
   }
 
-  const handleSignUp = async () => {
-    handleValidInput();
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-
+  const sendRequest = async () => {
     try {
-      const response = await fetch('http://192.168.99.16:3000/register', {
+      const response = await fetch('http://172.20.10.3:3000/register', {
         method: 'POST',
         headers:
         {
@@ -68,6 +59,19 @@ const SignUpScreen = ({ navigation }) => {
       console.error(error);
       setError('An error occurred. Please try again.');
     }
+  }
+
+  const handleSignUp = async () => {
+    let isValidInput = handleValidInput()
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (isValidInput) {
+      sendRequest();
+    }
+    
   };
 
   return (
