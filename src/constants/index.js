@@ -192,10 +192,10 @@ export let historySearch = [
 
 export const tourData = [
     {
-        id: 1,
-        title: 'Tour đêm Hoàng Thành Thăng Long',
-        image: require('../../assets/tour-images/tour-dem-0.jpg'),
-        detail: `    Thời gian khởi hành tour: 19h ngày thứ Sáu, Thứ Bảy hàng tuần.
+      id: 1,
+      title: 'Tour đêm Hoàng Thành Thăng Long',
+      image: require('../../assets/tour-images/tour-dem-0.jpg'),
+      detail: `    Thời gian khởi hành tour: 19h ngày thứ Sáu, Thứ Bảy hàng tuần.
     Chương trình tour kéo dài khoảng 1,5 giờ.
     Các bạn lưu ý đến trước giờ khởi hành 15 phút, tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu.
 
@@ -206,34 +206,34 @@ export const tourData = [
     Lộ trình tham quan: Đón khách tại cổng Hoàng thành 19c Hoàng Diệu – Chụp ảnh check in tại Đoan Môn – Xem biểu diễn nghệ thuật trên sàn kính khảo cổ Đoan Môn –  Tham quan phòng trưng bày hiện vật –  Dâng hương tưởng nhớ các bậc tiên đế tại Điện Kính Thiên – Tham quan các dấu tích khảo cổ tại 18 Hoàng Diệu – Trải nghiệm nước giếng hoàng cung – Giải mã hiện vật bằng ánh sáng laze – Thư giãn, thưởng thức trà sen, mứt sen cung đình dưới bóng cây bồ đề.
 
     Những điểm đặc biệt của tour mà bạn không nên bỏ lỡ:
-         Trải nghiệm khu di sản văn hóa thế giới Hoàng thành Thăng Long trong không gian lung linh ban đêm.
-         Chụp ảnh cùng các cung nữ, lính canh trong trang phục cổ xưa.
-         Thưởng thức nghệ thuật tại một sân khấu độc đáo, ngay trên các dấu tích khảo cổ nghìn năm.
-         Tham dự Lễ dâng hương tưởng nhớ các bậc tiên đế tại điện Kính Thiên, trung tâm của trời đất, trung tâm của kinh thành Thăng Long xưa.
-         Tham quan khu khảo cổ với các dấu tích cung điện vàng son một thuở, những hiện vật nghìn năm từ lòng đất.
-         Tự tay lấy cho mình những dòng nước mát từ giếng Vua, nguồn nước biểu tượng cho nguồn sống dồi dào và sự may mắn, phúc lành.
-         Tham gia trò chơi Giải mã Hoàng thành Thăng Long bằng thẻ giải mã với màn trình diễn laze bật mí ấn tượng và những phần quà ý nghĩa.
-         Cảm giác thật thư thái khi được ngồi thưởng thức trà sen, mứt sen ngay dưới tán cây bồ đề cổ thụ, biểu tượng cho sự an lành, may mắn.
+        Trải nghiệm khu di sản văn hóa thế giới Hoàng thành Thăng Long trong không gian lung linh ban đêm.
+        Chụp ảnh cùng các cung nữ, lính canh trong trang phục cổ xưa.
+        Thưởng thức nghệ thuật tại một sân khấu độc đáo, ngay trên các dấu tích khảo cổ nghìn năm.
+        Tham dự Lễ dâng hương tưởng nhớ các bậc tiên đế tại điện Kính Thiên, trung tâm của trời đất, trung tâm của kinh thành Thăng Long xưa.
+        Tham quan khu khảo cổ với các dấu tích cung điện vàng son một thuở, những hiện vật nghìn năm từ lòng đất.
+        Tự tay lấy cho mình những dòng nước mát từ giếng Vua, nguồn nước biểu tượng cho nguồn sống dồi dào và sự may mắn, phúc lành.
+        Tham gia trò chơi Giải mã Hoàng thành Thăng Long bằng thẻ giải mã với màn trình diễn laze bật mí ấn tượng và những phần quà ý nghĩa.
+        Cảm giác thật thư thái khi được ngồi thưởng thức trà sen, mứt sen ngay dưới tán cây bồ đề cổ thụ, biểu tượng cho sự an lành, may mắn.
 
     Những lưu ý nhỏ khi bạn tham gia tour:
-         Trang phục lịch sự, quần áo, giày dép thoải mái thuận tiện cho việc đi bộ nhiều.
-         Chương trình khởi hành đúng giờ, các bạn vui lòng có mặt trước 15 phút tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu (riêng cổng vào phải chú ý nhé vì khu di sản có nhiều cổng, dễ nhầm đấy).
-         Khu di sản rất rộng, các hoạt động liên tục diễn ra nên các bạn cố gắng bám sát, đi theo hướng dẫn viên của đoàn mình, cẩn thận không dễ bị “củ lạc”.
-         Hoạt động diễn ra ngoài trời, bạn nên mang thêm ô để phòng thời tiết mưa gió thất thường.
-         Chúc các bạn có một trải nghiệm thú vị với tour đêm Giải mã Hoàng thành Thăng Long!`,
-        slideImage: {
-            image0: require('../../assets/tour-images/tour-dem-0.jpg'),
-            image1: require('../../assets/tour-images/tour-dem-1.png'),
-            image2: require('../../assets/tour-images/tour-dem-2.jpg'),
-            image3: require('../../assets/tour-images/tour-dem-3.jpg'),
-            image4: require('../../assets/tour-images/tour-dem-4.jpg'),
-        },
+        Trang phục lịch sự, quần áo, giày dép thoải mái thuận tiện cho việc đi bộ nhiều.
+        Chương trình khởi hành đúng giờ, các bạn vui lòng có mặt trước 15 phút tại cổng Hoàng thành Thăng Long 19C Hoàng Diệu (riêng cổng vào phải chú ý nhé vì khu di sản có nhiều cổng, dễ nhầm đấy).
+        Khu di sản rất rộng, các hoạt động liên tục diễn ra nên các bạn cố gắng bám sát, đi theo hướng dẫn viên của đoàn mình, cẩn thận không dễ bị “củ lạc”.
+        Hoạt động diễn ra ngoài trời, bạn nên mang thêm ô để phòng thời tiết mưa gió thất thường.
+        Chúc các bạn có một trải nghiệm thú vị với tour đêm Giải mã Hoàng thành Thăng Long!`,
+      slideImage: {
+          image0: require('../../assets/tour-images/tour-dem-0.jpg'),
+          image1: require('../../assets/tour-images/tour-dem-1.png'),
+          image2: require('../../assets/tour-images/tour-dem-2.jpg'),
+          image3: require('../../assets/tour-images/tour-dem-3.jpg'),
+          image4: require('../../assets/tour-images/tour-dem-4.jpg'),
+      },
     },
     {
-        id: 2,
-        title: 'Tour dành cho du khách trong nước',
-        image: require('../../assets/tour-images/tour-vn-0.jpg'),
-        detail: `   Hướng về cội nguồn.
+      id: 2,
+      title: 'Tour dành cho du khách trong nước',
+      image: require('../../assets/tour-images/tour-vn-0.jpg'),
+      detail: `   Hướng về cội nguồn.
 
     Giúp khách tham quan trong nước hiểu biết thêm về Di sản dân tộc.
 
@@ -248,18 +248,18 @@ export const tourData = [
     Tham quan và nghe giới thiệu khu di tích khảo cổ 18 Hoàng Diệu, trải nghiệm nước giếng Hoàng cung xưa.
 
     Mua sắm quà lưu niệm.`,
-        slideImage: {
-            image0: require('../../assets/tour-images/tour-vn-0.jpg'),
-            image1: require('../../assets/tour-images/tour-vn-1.jpg'),
-            image2: require('../../assets/tour-images/tour-vn-2.jpg'),
-            image3: require('../../assets/tour-images/tour-vn-3.jpg'),
-        },
+      slideImage: {
+          image0: require('../../assets/tour-images/tour-vn-0.jpg'),
+          image1: require('../../assets/tour-images/tour-vn-1.jpg'),
+          image2: require('../../assets/tour-images/tour-vn-2.jpg'),
+          image3: require('../../assets/tour-images/tour-vn-3.jpg'),
+      },
     },
     {
-        id: 3,
-        title: 'Tour dành cho du khách nước ngoài',
-        image: require('../../assets/tour-images/tour-nn-0.jpg'),
-        detail: `   Giúp du khách nước ngoài tìm hiểu chi tiết về Khu di sản Hoàng Thành Thăng Long – Hà Nội với thuyết minh và nhiều hoạt động:
+      id: 3,
+      title: 'Tour dành cho du khách nước ngoài',
+      image: require('../../assets/tour-images/tour-nn-0.jpg'),
+      detail: `   Giúp du khách nước ngoài tìm hiểu chi tiết về Khu di sản Hoàng Thành Thăng Long – Hà Nội với thuyết minh và nhiều hoạt động:
 
     Phim giới thiệu tổng thể về Hoàng Thành Thăng Long – Hà Nội – Việt Nam (Tiếng Anh, phụ đề Tiếng Việt).
 
@@ -270,12 +270,59 @@ export const tourData = [
     Tham quan và nghe giới thiệu khu di tích khảo cổ 18 Hoàng Diệu, trải nghiệm nước giếng Hoàng Thành xưa.
 
     Xem show nghệ thuật dân gian, múa rối nước và trải nghiệm văn hóa dân gian tại các gian hàng lưu niệm “Nét Văn hóa Việt“.`,
-        slideImage: {
-            image0: require('../../assets/tour-images/tour-nn-0.jpg'),
-            image1: require('../../assets/tour-images/tour-nn-1.jpg'),
-            image2: require('../../assets/tour-images/tour-nn-2.jpg'),
-            image3: require('../../assets/tour-images/tour-nn-3.jpg'),
-            image4: require('../../assets/tour-images/tour-nn-4.jpg'),
-        },
+      slideImage: {
+          image0: require('../../assets/tour-images/tour-nn-0.jpg'),
+          image1: require('../../assets/tour-images/tour-nn-1.jpg'),
+          image2: require('../../assets/tour-images/tour-nn-2.jpg'),
+          image3: require('../../assets/tour-images/tour-nn-3.jpg'),
+          image4: require('../../assets/tour-images/tour-nn-4.jpg'),
+      },
     },
+    {
+      id: 4,
+      title: 'Em làm nhà khảo cổ',
+      image: require('../../assets/tour-images/elnkc-0.jpg'),
+      detail: `   Hoạt động ngoại khóa ý nghĩa dành cho các em nhỏ.
+
+    Tại Khu di tích khảo cổ 18 Hoàng Diệu, các em học sinh sẽ được trải nghiệm làm “Nhà khảo cổ nhí” với nhiều hoạt động bổ ích:
+    - Tham quan khu di tích khảo cổ 18 Hoàng Diệu;
+    - Tham gia trò chơi Đi tìm báu vật Hoàng cung;
+    - Trải nghiệm tại hố khảo cổ giả định;
+    - Vẽ hiện vật, ghép tranh, dập hoa văn;
+    - Trả lời câu hỏi trên phiếu hoạt động;
+    - Trao giấy chứng nhận.
+
+    Những trò chơi và trải nghiệm sẽ giúp các em học sinh được trang bị những kiến thức cơ bản về lịch sử, văn hóa dần hình thành ý thức trân trọng, giữ gìn di sản văn hóa của cha ông, nâng cao nhận thức bồi đắp niềm tự hào dân tộc.`,
+      slideImage: {
+          image0: require('../../assets/tour-images/elnkc-0.jpg'),
+          image1: require('../../assets/tour-images/elnkc-1.jpg'),
+          image2: require('../../assets/tour-images/elnkc-2.jpg'),
+          image3: require('../../assets/tour-images/elnkc-3.jpg'),
+          image4: require('../../assets/tour-images/elnkc-4.jpg'),
+      },
+  },
+  {
+    id: 5,
+    title: 'Em tìm hiểu di sản',
+    image: require('../../assets/tour-images/ethds-0.jpg'),
+    detail: `   Cùng với “Em làm nhà khảo cổ” dành cho học sinh tiểu học, chương trình “Em tìm hiểu di sản là chương trình giáo dục di sản dành cho học sinh trung học tại Hoàng Thành Thăng Long. Các em sã được tìm hiểu, khám phá khu sản thông qua các hoạt động:
+
+    Tham quan khu di sản
+    
+    Xem video clip giới thiệu di sản
+    
+    Trả lời câu hỏi trên phiểu hoạt động
+    
+    Tìm hiểu lịch sử qua các chuyên đề
+    
+    Tham gia các trò chơi dân gian (kéo co, nhảy bao bố)
+    
+    Trải nghiệm dán quạt giấy, vẽ gốm, in tranh dân gian.`,
+    slideImage: {
+        image0: require('../../assets/tour-images/ethds-0.jpg'),
+        image1: require('../../assets/tour-images/ethds-1.jpg'),
+        image2: require('../../assets/tour-images/ethds-2.jpg'),
+        image3: require('../../assets/tour-images/ethds-3.jpg'),
+    },
+  },
 ];

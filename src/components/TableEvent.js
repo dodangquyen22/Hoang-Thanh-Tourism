@@ -28,7 +28,7 @@ const NotificationScreen = () => {
         <Image source={item.image} style={styles.eventImage} />
         <View >
           <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.date}>Từ: 1/1/2023 đên 2/1/2023</Text>
+          <Text style={styles.date}>Từ: 1/1/2023 đến 2/1/2023</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={pressIcon}>

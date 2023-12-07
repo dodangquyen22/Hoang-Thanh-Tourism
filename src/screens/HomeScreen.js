@@ -18,7 +18,6 @@ export default function HomeScreen({ navigation }) {
     const [userData, setUserData] = useState(null);
     const [isLoggedIn, setisLoggedIn] = useState(null);
     const [clicked, setClicked] = useState(false);
-    const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState([]);
 
     function removeDiacritics(str) {
@@ -26,7 +25,7 @@ export default function HomeScreen({ navigation }) {
     }
 
     const handleSearch = (value) => {
-        setSearchValue(value);
+        setClicked(true)
     
         const results = historySearch.filter((item) => {
             const titleItem = removeDiacritics(item.title);
@@ -36,9 +35,9 @@ export default function HomeScreen({ navigation }) {
     
         setSearchResults(results);
     
-        if (results.length === 0) {
-            alert("Không tìm thấy kết quả phù hợp");
-        }
+        // if (results.length === 0 || value.length === 0) {
+        //     alert("Không tìm thấy kết quả phù hợp");
+        // }
     };
 
 
@@ -83,7 +82,7 @@ export default function HomeScreen({ navigation }) {
 
     const checkLogin = () => {
         if (userData != null) {
-            console.log(123)
+            
             navigation.navigate('InfoUser');
         } else {
             navigation.navigate('LoginScreen');
@@ -109,7 +108,7 @@ export default function HomeScreen({ navigation }) {
                                     placeholder='Tìm kiếm cổ vật'
                                     placeholderTextColor={'gray'}
                                     className="flex-1 text-base mb-1 pl-1 tracking-wider"
-                                    onFocus={() => setClicked(true)}
+                                    onFocus={() => handleSearch("")}
                                     onBlur={() => setClicked(true)}
                                     onChangeText={text => handleSearch(text)}
                                     onSubmitEditing={() => {
@@ -129,8 +128,9 @@ export default function HomeScreen({ navigation }) {
                                 <TouchableOpacity
                                     key={index}
                                     onPress={() => {
-                                        handleSearch(item.title);
+                                        //handleSearch(item.title);
                                         navigation.navigate("Destination", item);
+                                        setClicked(false);
                                     }}
                                     style={styles.recomendTextbox}
                                 >
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
         //        borderColor: 'black',
         width: Dimensions.get('window').width * 0.18, // Điều chỉnh chiều rộng của hình ảnh theo ý muốn
         height: Dimensions.get('window').width * 0.18, // Điều chỉnh chiều cao của hình ảnh theo ý muốn,
-        tintColor: 'orange'
+        tintColor: 'black'
     },
     text: {
         marginTop: '2%', // Điều chỉnh khoảng cách giữa hình ảnh và văn bản theo ý muốn

@@ -1,18 +1,25 @@
+import React, { useState } from 'react';
 import { SliderBox } from 'react-native-image-slider-box';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import { tourData } from '../constants';
 
 const SlideTour = () => {
+    const navigation = useNavigation();
+    const handlePress = (item) => {
+        navigation.navigate('TourDetail', { item });
+    };
+
     const images = {
         image0: require('../../assets/tour-images/tour-dem-0.jpg'),
         image1: require('../../assets/tour-images/tour-vn-0.jpg'),
         image2: require('../../assets/tour-images/tour-nn-0.jpg'),
+        image3: require('../../assets/tour-images/elnkc-0.jpg'),
+        image4: require('../../assets/tour-images/ethds-0.jpg'),
     };
 
-    const captions = [
-        'Tour đêm Hoàng Thành Thăng Long',
-        'Tour dành cho du khách trong nước',
-        'Tour dành cho du khách nước ngoài',
-    ]
+    const data = tourData;
+    const [item, setItem] = useState(null);
 
     return (
         <View style={styles.container}>
@@ -25,8 +32,11 @@ const SlideTour = () => {
                 circleLoop
                 autoplayInterval={4000}
                 onCurrentImagePressed={(index) => {
-                    console.log(`Image ${index} pressed`);
-                    // handle the press event here
+                    // console.log(`Image ${index} pressed`);
+                    const selectedItem = data.find((item) => item.id === index+1);
+                    // console.log(selectedItem);
+                    setItem(selectedItem);
+                    handlePress(selectedItem);
                 }}
             />
         </View>

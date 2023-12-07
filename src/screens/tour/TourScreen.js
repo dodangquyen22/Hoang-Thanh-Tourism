@@ -46,19 +46,17 @@ export default function TourScreen() {
                 </TouchableOpacity>
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <SlideTour></SlideTour>
-                <Text style={styles.subTitle}>Danh sách tour </Text>
-                <View style={styles.tourList}>
-                    <FlatList
-                        data={data}
-                        renderItem={renderItem}
-                        keyExtractor={(item) => item.id.toString()}
-                    />
-                </View>
-
+            <ScrollView showsVerticalScrollIndicator={false} style ={{height: 300}}>
+                <SlideTour />
             </ScrollView>
-            <BottomButtonBar />
+                <Text style={styles.subTitle}>Danh sách tour</Text>
+                <FlatList
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id.toString()}
+                    style={styles.tourList}
+                />
+                    <BottomButtonBar />
         </View>
     )
 };
@@ -103,8 +101,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 14,
         marginLeft: '2%',
-        marginTop: '3%',
-        marginBottom: '2%',
+        marginTop: '4%',
+        marginBottom: '4%',
         width: Dimensions.get('window').width * 0.65,
 //        flexWrap: 'wrap',
     },

@@ -33,18 +33,18 @@ export default function WelcomeScreen() {
         />
         <View style={{ marginTop: "auto", marginBottom: 20 }}>
           <Text
-            style={{ color: "white", fontWeight: "bold", fontSize: wp(10) }}
+            style={{ color: "white", fontWeight: "bold", fontSize: wp(10)}}
           >
-            Hoàng Thành Thăng Long
+            Khám phá
           </Text>
           <Text
             style={{
-              color: theme.textNeutral,
-              fontWeight: "normal",
-              fontSize: wp(4)
+              color: "white",
+              fontWeight: "bold",
+              fontSize: wp(7)
             }}
           >
-            Khám phá Hoàng Thành Thăng Long
+            Hoàng Thành Thăng Long
           </Text>
         </View>
         <TouchableOpacity
