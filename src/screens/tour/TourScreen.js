@@ -5,11 +5,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 
 import BottomButtonBar from "../../components/NavigatorBottomBar";
-import SlideTour from "../../components/SlideTour.js"
+import SlideTour from "../../components/SlideTour.js";
+import { PopUp } from "../../components/PopUp";
 import { ticketStyles } from "../../styles/globalStyles";
 import { tourData } from '../../constants';
 
 export default function TourScreen() {
+    const [isHelpVisible, setHelpVisible] = React.useState(false);
     const navigation = useNavigation();
     const handlePress = (buttonName, item) => {
         navigation.navigate(buttonName, { item });
@@ -40,7 +42,7 @@ export default function TourScreen() {
                     </Ionicons>
                 </TouchableOpacity>
                 <Text style={ticketStyles.titleText}>Tour</Text>
-                <TouchableOpacity style={ticketStyles.icon} onPress={() => Alert.alert('Hướng dẫn đặt tour')}>
+                <TouchableOpacity style={ticketStyles.icon} onPress={() => setHelpVisible(!isHelpVisible)}>
                     <Ionicons style={ticketStyles.icon} name="information-circle-outline" size={40}>
                     </Ionicons>
                 </TouchableOpacity>
@@ -59,6 +61,18 @@ export default function TourScreen() {
 
             </ScrollView>
             <BottomButtonBar />
+
+            <PopUp isVisible={isHelpVisible}>
+                <PopUp.Container>
+                    <PopUp.Header title="Hướng dẫn" />
+                    <PopUp.Body>
+                        <Text style={ticketStyles.popText}>Click Xem thêm hoặc ảnh tương ứng trên đầu trang để xem thông tin chi tiết các tour tham quan!</Text>
+                    </PopUp.Body>
+                    <PopUp.Footer>
+                        <Button title="Quay lại" onPress={() => setHelpVisible(!isHelpVisible)} />
+                    </PopUp.Footer>
+                </PopUp.Container>
+            </PopUp>            
         </View>
     )
 };
