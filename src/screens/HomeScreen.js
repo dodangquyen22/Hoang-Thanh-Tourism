@@ -19,7 +19,7 @@ export default function HomeScreen({ navigation }) {
     const [isLoggedIn, setisLoggedIn] = useState(null);
     const [clicked, setClicked] = useState(false);
     const [searchValue, setSearchValue] = useState('');
-    let searchResults = {}
+    const [searchResults, setSearchResults] = useState([]);
 
     function removeDiacritics(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -27,22 +27,19 @@ export default function HomeScreen({ navigation }) {
 
     const handleSearch = (value) => {
         setSearchValue(value);
-        historySearch.forEach((item) => {
-            titleItem = removeDiacritics(item.title);
-            valueTitle = removeDiacritics(value);
-            if (titleItem.toLowerCase().includes(valueTitle.toLowerCase())) {
-                searchResults = item;
-            }
-        })
-
-        if (Object.keys(searchResults).length === 0) {
-            alert("Không tìm thấy kết quả phù hợp")
-        } else {
-            console.log(searchResults)
-            navigation.navigate("Destination", searchResults);
+    
+        const results = historySearch.filter((item) => {
+            const titleItem = removeDiacritics(item.title);
+            const valueTitle = removeDiacritics(value);
+            return titleItem.toLowerCase().includes(valueTitle.toLowerCase());
+        });
+    
+        setSearchResults(results);
+    
+        if (results.length === 0) {
+            alert("Không tìm thấy kết quả phù hợp");
         }
-
-    }
+    };
 
 
     const retrieveUserData = async () => {
@@ -113,29 +110,35 @@ export default function HomeScreen({ navigation }) {
                                     placeholderTextColor={'gray'}
                                     className="flex-1 text-base mb-1 pl-1 tracking-wider"
                                     onFocus={() => setClicked(true)}
-                                    // onBlur={() => setClicked(false)}
-                                    onChangeText={text => setSearchValue(text)}
-                                    onSubmitEditing={() => handleSearch(searchValue)}
-                                    
+                                    onBlur={() => setClicked(true)}
+                                    onChangeText={text => handleSearch(text)}
+                                    onSubmitEditing={() => {
+                                        if (searchResults.length > 0) {
+                                            navigation.navigate("Destination", searchResults[0]);
+                                        }
+                                    }}
                                 />
                             </View>
 
 
                         </View>
                         <View style={styles.slideImage}>
-                            {clicked ? <View style={styles.recommendationsBox}>
-                                {historySearch.map((item, index) => (
-                                    <TouchableOpacity
-                                        key={index}
-                                        onPress={() => {
-                                            handleSearch(item.title);
-                                        }}
-                                        style={styles.recomendTextbox}
-                                    >
-                                        <Text style={styles.textRecomend}>{item.title}</Text>
-                                    </TouchableOpacity>
-                                ))}
-                            </View> : null}
+                        {clicked && searchResults.length > 0 && (
+                        <View style={styles.recommendationsBox}>
+                            {searchResults.map((item, index) => (
+                                <TouchableOpacity
+                                    key={index}
+                                    onPress={() => {
+                                        handleSearch(item.title);
+                                        navigation.navigate("Destination", item);
+                                    }}
+                                    style={styles.recomendTextbox}
+                                >
+                                    <Text style={styles.textRecomend}>{item.title}</Text>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+                        )}
                             <SlideImage></SlideImage>
                         </View>
                     </View>

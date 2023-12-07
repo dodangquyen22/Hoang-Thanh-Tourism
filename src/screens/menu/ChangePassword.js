@@ -24,7 +24,7 @@ export default function ChangePasswordScreen() {
         }
         
         try {
-          const response = await fetch('http://192.168.31.7:3000/changePass', {
+          const response = await fetch('http://192.168.99.16:3000/changePass', {
             method: 'POST',
             headers:
             {

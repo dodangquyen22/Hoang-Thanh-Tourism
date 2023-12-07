@@ -32,7 +32,7 @@ export default function UserInfoScreen() {
         try {
             parsedData = await AsyncStorage.getItem('userData');
             username = JSON.parse(parsedData);
-            const response = await fetch('http://192.168.31.7:3000/viewInfo', {
+            const response = await fetch('http://192.168.99.16:3000/viewInfo', {
                 method: 'POST',
                 headers:
                 {
@@ -70,7 +70,7 @@ export default function UserInfoScreen() {
         console.log(mailEdit)
         console.log(phoneEdit)
         try {
-            const response = await fetch('http://192.168.31.7:3000/changeInfo', {
+            const response = await fetch('http://192.168.99.16:3000/changeInfo', {
                 method: 'POST',
                 headers:
                 {
