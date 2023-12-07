@@ -11,7 +11,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = async () => {
     // Xử lý logic đăng nhập ở đây
     try {
-      const response = await fetch('http://192.168.12.102:3000/login', {
+      const response = await fetch('http://172.20.10.3:3000/login', {
         method: 'POST',
         headers:
         {

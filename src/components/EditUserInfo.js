@@ -2,17 +2,22 @@ import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { Keyboard } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export const EditUserInfoWindow = ({ user, onSaveChanges, onCancelChanges }) => {
     const navigation = useNavigation();
-    const [email, setEmail] = React.useState(user.email);
-    const [phone, setPhone] = React.useState(user.phone);
+    const [email, setEmail] = useState(user.email);
+    const [phone, setPhone] = useState(user.phone.toString());
 
     const handleSaveChanges = () => {
-        const updatedUser = { ...user, email, phone };
-        console.log(phone);
+        const updatedUser = { user, email, phone };
+        
         onSaveChanges(updatedUser);
     };
+
+    useEffect(() => {
+    });
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -23,8 +28,10 @@ export const EditUserInfoWindow = ({ user, onSaveChanges, onCancelChanges }) => 
                     value={email}
                     onChangeText={setEmail}
                     placeholder="Email"
+
                 />
                 <TextInput
+                    keyboardType='numeric'
                     style={styles.input}
                     value={phone}
                     onChangeText={setPhone}

@@ -32,7 +32,7 @@ export default function UserInfoScreen() {
         try {
             parsedData = await AsyncStorage.getItem('userData');
             username = JSON.parse(parsedData);
-            const response = await fetch('http://192.168.12.102:3000/viewInfo', {
+            const response = await fetch('http://172.20.10.3:3000/viewInfo', {
                 method: 'POST',
                 headers:
                 {
@@ -42,11 +42,8 @@ export default function UserInfoScreen() {
             });
 
             const data = await response.json();
-
-            console.log(data)
             if (response.ok) {
                 setUser(data)
-                console.log(userr)
             } else {
                 // Xử lý lỗi từ máy chủ
                 setError(data.error);
@@ -63,24 +60,21 @@ export default function UserInfoScreen() {
     }, [])
 
     editUserInfo = async (updatedUser) => {
-        username = updatedUser.username
-        mailEdit = updatedUser.email
+        username = user.username
+        emailEdit = updatedUser.email
         phoneEdit = updatedUser.phone
-        console.log(username)
-        console.log(mailEdit)
-        console.log(phoneEdit)
         try {
-            const response = await fetch('http://192.168.31.7:3000/changeInfo', {
+            const response = await fetch('http://172.20.10.3:3000/changeInfo', {
                 method: 'POST',
                 headers:
                 {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, mailEdit, phoneEdit }),
+                body: JSON.stringify({ username, emailEdit, phoneEdit }),
             });
             getUser();
             const data = await response.json();
-
+            console.log(data)
             if (response.ok) {
                 setUser(data)
             } else {
@@ -92,12 +86,15 @@ export default function UserInfoScreen() {
             setError('An error occurred. Please try again.');
         }
     }
+    handleBack = () => {
+        navigation.goBack();
+    };
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity style={styles.icon} onPress={() => navigation.goBack()}>
-                    <Ionicons name="chevron-back-circle-outline" size={32}>
+                <TouchableOpacity style={styles.icon} onPress={handleBack}>
+                    <Ionicons style={styles.icon} name="arrow-back" size={32}>
                     </Ionicons>
                 </TouchableOpacity>
                 <View>
@@ -182,6 +179,7 @@ const styles = StyleSheet.create({
         marginLeft: 40,
     }, icon: {
         textAlign: 'center',
+        marginLeft: 5
     },
     titleText: {
         flex: 2,

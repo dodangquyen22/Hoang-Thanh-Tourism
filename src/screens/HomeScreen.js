@@ -26,6 +26,7 @@ export default function HomeScreen({ navigation }) {
     }
 
     const handleSearch = (value) => {
+        
         setSearchValue(value);
         historySearch.forEach((item) => {
             titleItem = removeDiacritics(item.title);
@@ -35,7 +36,7 @@ export default function HomeScreen({ navigation }) {
             }
         })
 
-        if (Object.keys(searchResults).length === 0) {
+        if (Object.keys(searchResults).length === 0 || value.length === 0) {
             alert("Không tìm thấy kết quả phù hợp")
         } else {
             console.log(searchResults)
@@ -86,7 +87,7 @@ export default function HomeScreen({ navigation }) {
 
     const checkLogin = () => {
         if (userData != null) {
-            console.log(123)
+            
             navigation.navigate('InfoUser');
         } else {
             navigation.navigate('LoginScreen');
