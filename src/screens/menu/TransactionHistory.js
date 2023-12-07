@@ -15,7 +15,7 @@ const PurchasedTicketsScreen = ({ navigation }) => {
   try {
       parsedData = await AsyncStorage.getItem('userData');
       username = JSON.parse(parsedData);
-      const response = await fetch('http://192.168.99.16:3000/viewTicket', {
+      const response = await fetch('http://192.168.12.102:3000/viewTicket', {
       method: 'POST',
       headers:
       {
